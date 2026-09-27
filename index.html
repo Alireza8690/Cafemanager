@@ -1,62 +1,1292 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پنل مدیریت کافه</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#0b1220" />
+    <title>&#x645;&#x646;&#x648;&#x6CC; &#x62F;&#x6CC;&#x62C;&#x6CC;&#x62A;&#x627;&#x644; &#x6A9;&#x627;&#x641;&#x647; &#x631;&#x627;&#x62F;&#x6CC;&#x646;&#x648; - کافه</title>
     <style>
-        body {
-            font-family: Tahoma, Arial, sans-serif;
-            background-color: #f4f1ea;
+        html, body {
+            padding: 0;
             margin: 0;
-            padding: 20px;
-            color: #333;
+            width: 100%;
+            min-height: 100%;
+            background-color: #0b1220;
+            color: #e8eefc;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Vazirmatn", Tahoma, sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
+        * {
+            box-sizing: border-box;
         }
 
-        h1 {
-            color: #6f4e37; /* رنگ قهوه‌ای کافه */
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #6f4e37;
-            color: white;
+        a {
+            color: inherit;
             text-decoration: none;
-            border-radius: 8px;
-            margin-top: 20px;
-            transition: background 0.3s;
         }
-
-            .btn:hover {
-                background-color: #553b2a;
-            }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>به سیستم مدیریت کافه خوش آمدید</h1>
-        <p>این نسخه اولیه سیستم شماست که بر روی GitHub Pages قرار گرفته است.</p>
-        <p>شما می‌توانید در آینده این صفحه را توسعه داده و بخش‌های مختلف سیستم مدیریت کافه را به آن اضافه کنید.</p>
-        <a href="#" class="btn">ورود به پنل مدیریت</a>
+
+    <link rel="stylesheet" href="./css/menu.css?v=e4zn1_LKkG3ZLdkufx7ZrS_RVPRy4MAeNzJvbVdXEZs" />
+
+    <div class="menu-app">
+
+        <div class="ambient-glow ambient-glow--top"></div>
+        <div class="ambient-glow ambient-glow--mid"></div>
+
+        <header class="hero">
+
+            <div class="hero__badge">
+                <span class="live-dot"></span>
+                سفارش حضوری و بیرون‌بر فعال است
+            </div>
+
+            <div class="hero__brand">
+
+                <div class="hero__logo-wrap">
+                    <span class="hero__icon">☕</span>
+                </div>
+
+                <div class="hero__text">
+                    <h1 class="hero__title">
+                        کـافـه تـخصصی رادیـنو
+                    </h1>
+
+                    <p class="hero__slogan">
+                        Specialty Coffee &amp; Artisan Roasters
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="search-container">
+                <div class="search-box">
+
+                    <svg class="search-box__icon"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         aria-hidden="true">
+
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21"
+                              y1="21"
+                              x2="16.65"
+                              y2="16.65"></line>
+                    </svg>
+
+                    <input id="menu-search"
+                           class="search-box__input"
+                           type="search"
+                           inputmode="search"
+                           placeholder="جستجوی طعم دلخواه (لاته، چیزکیک، سیروپ...)"
+                           autocomplete="off"
+                           aria-label="جستجوی منو" />
+
+                    <button id="search-clear-btn"
+                            class="search-box__clear"
+                            type="button"
+                            aria-label="پاک کردن جستجو"
+                            style="display: none;">
+                        ✕
+                    </button>
+
+                </div>
+            </div>
+
+        </header>
+
+        <nav class="category-nav"
+             id="category-nav"
+             aria-label="دسته‌بندی‌های منو">
+
+            <div class="category-nav__scroller">
+
+                <a href="#cat-4"
+                   class="nav-pill nav-pill--active"
+                   data-target="cat-4">
+
+                    <span class="nav-pill__symbol">
+                        &#x1F6AC;
+                    </span>
+
+                    <span class="nav-pill__title">
+                        &#x642;&#x644; &#x642;&#x644;&#x6CC;
+                    </span>
+
+                </a>
+                <a href="#cat-1"
+                   class="nav-pill "
+                   data-target="cat-1">
+
+                    <span class="nav-pill__symbol">
+                        &#x2615;
+                    </span>
+
+                    <span class="nav-pill__title">
+                        &#x646;&#x648;&#x634;&#x6CC;&#x62F;&#x646;&#x6CC;&#x200C;&#x647;&#x627;&#x6CC; &#x6AF;&#x631;&#x645;
+                    </span>
+
+                </a>
+                <a href="#cat-2"
+                   class="nav-pill "
+                   data-target="cat-2">
+
+                    <span class="nav-pill__symbol">
+                        &#x1F964;
+                    </span>
+
+                    <span class="nav-pill__title">
+                        &#x646;&#x648;&#x634;&#x6CC;&#x62F;&#x646;&#x6CC;&#x200C;&#x647;&#x627;&#x6CC; &#x633;&#x631;&#x62F;
+                    </span>
+
+                </a>
+                <a href="#cat-3"
+                   class="nav-pill "
+                   data-target="cat-3">
+
+                    <span class="nav-pill__symbol">
+                        &#x1F370;
+                    </span>
+
+                    <span class="nav-pill__title">
+                        &#x62F;&#x633;&#x631; &#x648; &#x6A9;&#x6CC;&#x6A9;
+                    </span>
+
+                </a>
+
+            </div>
+        </nav>
+        <main class="menu-content">
+
+            <section class="menu-section"
+                     id="cat-4"
+                     data-section-id="4">
+
+                <div class="section-title-wrap">
+
+                    <div class="section-title-wrap__badge">
+                        &#x1F6AC;
+                    </div>
+
+                    <div>
+                        <h2 class="section-title">
+                            &#x642;&#x644; &#x642;&#x644;&#x6CC;
+                        </h2>
+
+                        <p class="section-desc">
+                            &#x642;&#x644;&#x6CC;&#x627;&#x646;
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="product-grid">
+
+                    <article class="menu-card "
+                             data-item-name="&#x642;&#x644;&#x6CC;&#x627;&#x646; &#x67E;&#x627;&#x6CC;&#x647; &#x62F;&#x648;&#x633;&#x6CC;&#x628;"
+                             data-item-desc="&#x642;&#x644;&#x6CC;&#x627;&#x646; &#x628;&#x627; &#x637;&#x639;&#x645; &#x62F;&#x648;&#x633;&#x6CC;&#x628;">
+
+                        <div class="menu-card__media">
+
+                            <img src="./uploads/products/f8f0dd39fbad4b02b904f475a8fa4798.png"
+                                 alt="&#x642;&#x644;&#x6CC;&#x627;&#x646; &#x67E;&#x627;&#x6CC;&#x647; &#x62F;&#x648;&#x633;&#x6CC;&#x628;"
+                                 class="menu-card__image"
+                                 loading="lazy" />
+
+
+                        </div>
+
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+
+                                <h3 class="menu-card__title">
+                                    &#x642;&#x644;&#x6CC;&#x627;&#x646; &#x67E;&#x627;&#x6CC;&#x647; &#x62F;&#x648;&#x633;&#x6CC;&#x628;
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+
+                                    <span class="price-val"
+                                          data-price="250000">
+                                        250,000
+                                    </span>
+
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <p class="menu-card__description">
+                                &#x642;&#x644;&#x6CC;&#x627;&#x646; &#x628;&#x627; &#x637;&#x639;&#x645; &#x62F;&#x648;&#x633;&#x6CC;&#x628;
+                            </p>
+
+                            <div class="menu-card__footer">
+
+                                <span class="menu-card__tag">
+                                    دست‌ساز و تازه
+                                </span>
+
+                                <span class="menu-card__action-indicator">
+                                    سفارش در محل
+
+                                    <svg width="12"
+                                         height="12"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="2.5"
+                                         aria-hidden="true">
+
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card "
+                             data-item-name="&#x642;&#x644;&#x6CC;&#x627;&#x646; &#x67E;&#x627;&#x6CC;&#x647; &#x644;&#x6CC;&#x645;&#x648;&#x646;&#x639;&#x646;&#x627;&#x639;"
+                             data-item-desc="&#x642;&#x644;&#x6CC;&#x627;&#x646; &#x628;&#x627; &#x637;&#x628;&#x639; &#x62E;&#x646;&#x6A9;">
+
+                        <div class="menu-card__media">
+
+                            <img src="./uploads/products/cab1dde8c1f247c8be8b89b26cf73305.png"
+                                 alt="&#x642;&#x644;&#x6CC;&#x627;&#x646; &#x67E;&#x627;&#x6CC;&#x647; &#x644;&#x6CC;&#x645;&#x648;&#x646;&#x639;&#x646;&#x627;&#x639;"
+                                 class="menu-card__image"
+                                 loading="lazy" />
+
+
+                        </div>
+
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+
+                                <h3 class="menu-card__title">
+                                    &#x642;&#x644;&#x6CC;&#x627;&#x646; &#x67E;&#x627;&#x6CC;&#x647; &#x644;&#x6CC;&#x645;&#x648;&#x646;&#x639;&#x646;&#x627;&#x639;
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+
+                                    <span class="price-val"
+                                          data-price="250000">
+                                        250,000
+                                    </span>
+
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <p class="menu-card__description">
+                                &#x642;&#x644;&#x6CC;&#x627;&#x646; &#x628;&#x627; &#x637;&#x628;&#x639; &#x62E;&#x646;&#x6A9;
+                            </p>
+
+                            <div class="menu-card__footer">
+
+                                <span class="menu-card__tag">
+                                    دست‌ساز و تازه
+                                </span>
+
+                                <span class="menu-card__action-indicator">
+                                    سفارش در محل
+
+                                    <svg width="12"
+                                         height="12"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="2.5"
+                                         aria-hidden="true">
+
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card "
+                             data-item-name="&#x642;&#x644;&#x6CC;&#x627;&#x646; &#x67E;&#x627;&#x6CC;&#x647; &#x644;&#x627;&#x648; - LOVE"
+                             data-item-desc="&#x642;&#x644;&#x6CC;&#x627;&#x646; &#x628;&#x627; &#x637;&#x639;&#x645; LOVE">
+
+                        <div class="menu-card__media">
+
+                            <img src="./uploads/products/0d96ff2cf89b403c9361f9fe39e00ec8.png"
+                                 alt="&#x642;&#x644;&#x6CC;&#x627;&#x646; &#x67E;&#x627;&#x6CC;&#x647; &#x644;&#x627;&#x648; - LOVE"
+                                 class="menu-card__image"
+                                 loading="lazy" />
+
+
+                        </div>
+
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+
+                                <h3 class="menu-card__title">
+                                    &#x642;&#x644;&#x6CC;&#x627;&#x646; &#x67E;&#x627;&#x6CC;&#x647; &#x644;&#x627;&#x648; - LOVE
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+
+                                    <span class="price-val"
+                                          data-price="250000">
+                                        250,000
+                                    </span>
+
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <p class="menu-card__description">
+                                &#x642;&#x644;&#x6CC;&#x627;&#x646; &#x628;&#x627; &#x637;&#x639;&#x645; LOVE
+                            </p>
+
+                            <div class="menu-card__footer">
+
+                                <span class="menu-card__tag">
+                                    دست‌ساز و تازه
+                                </span>
+
+                                <span class="menu-card__action-indicator">
+                                    سفارش در محل
+
+                                    <svg width="12"
+                                         height="12"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="2.5"
+                                         aria-hidden="true">
+
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card "
+                             data-item-name="&#x642;&#x644;&#x6CC;&#x627;&#x646; &#x67E;&#x627;&#x6CC;&#x647; &#x622;&#x62F;&#x627;&#x645;&#x633; &#x646;&#x639;&#x646;&#x627;&#x639; &#x6CC;&#x62E;"
+                             data-item-desc="&#x642;&#x644;&#x6CC;&#x627;&#x646; &#x628;&#x627; &#x637;&#x639;&#x645; &#x622;&#x62F;&#x627;&#x645;&#x633; &#x646;&#x639;&#x646;&#x627;&#x639; &#x6CC;&#x62E;">
+
+                        <div class="menu-card__media">
+
+                            <img src="./uploads/products/74b59eac93664373a0683101d6f04ad9.png"
+                                 alt="&#x642;&#x644;&#x6CC;&#x627;&#x646; &#x67E;&#x627;&#x6CC;&#x647; &#x622;&#x62F;&#x627;&#x645;&#x633; &#x646;&#x639;&#x646;&#x627;&#x639; &#x6CC;&#x62E;"
+                                 class="menu-card__image"
+                                 loading="lazy" />
+
+
+                        </div>
+
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+
+                                <h3 class="menu-card__title">
+                                    &#x642;&#x644;&#x6CC;&#x627;&#x646; &#x67E;&#x627;&#x6CC;&#x647; &#x622;&#x62F;&#x627;&#x645;&#x633; &#x646;&#x639;&#x646;&#x627;&#x639; &#x6CC;&#x62E;
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+
+                                    <span class="price-val"
+                                          data-price="250000">
+                                        250,000
+                                    </span>
+
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <p class="menu-card__description">
+                                &#x642;&#x644;&#x6CC;&#x627;&#x646; &#x628;&#x627; &#x637;&#x639;&#x645; &#x622;&#x62F;&#x627;&#x645;&#x633; &#x646;&#x639;&#x646;&#x627;&#x639; &#x6CC;&#x62E;
+                            </p>
+
+                            <div class="menu-card__footer">
+
+                                <span class="menu-card__tag">
+                                    دست‌ساز و تازه
+                                </span>
+
+                                <span class="menu-card__action-indicator">
+                                    سفارش در محل
+
+                                    <svg width="12"
+                                         height="12"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="2.5"
+                                         aria-hidden="true">
+
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card "
+                             data-item-name="&#x642;&#x644;&#x6CC;&#x627;&#x646; &#x67E;&#x627;&#x6CC;&#x647; &#x62F;&#x698;&#x627;&#x648;&#x648;"
+                             data-item-desc="&#x642;&#x644;&#x6CC;&#x627;&#x646; &#x628;&#x627; &#x637;&#x639;&#x645; &#x62F;&#x698;&#x627;&#x648;&#x648;">
+
+                        <div class="menu-card__media">
+
+                            <img src="./uploads/products/d5dc4d6167824093a702f32260c96287.png"
+                                 alt="&#x642;&#x644;&#x6CC;&#x627;&#x646; &#x67E;&#x627;&#x6CC;&#x647; &#x62F;&#x698;&#x627;&#x648;&#x648;"
+                                 class="menu-card__image"
+                                 loading="lazy" />
+
+
+                        </div>
+
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+
+                                <h3 class="menu-card__title">
+                                    &#x642;&#x644;&#x6CC;&#x627;&#x646; &#x67E;&#x627;&#x6CC;&#x647; &#x62F;&#x698;&#x627;&#x648;&#x648;
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+
+                                    <span class="price-val"
+                                          data-price="250000">
+                                        250,000
+                                    </span>
+
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <p class="menu-card__description">
+                                &#x642;&#x644;&#x6CC;&#x627;&#x646; &#x628;&#x627; &#x637;&#x639;&#x645; &#x62F;&#x698;&#x627;&#x648;&#x648;
+                            </p>
+
+                            <div class="menu-card__footer">
+
+                                <span class="menu-card__tag">
+                                    دست‌ساز و تازه
+                                </span>
+
+                                <span class="menu-card__action-indicator">
+                                    سفارش در محل
+
+                                    <svg width="12"
+                                         height="12"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="2.5"
+                                         aria-hidden="true">
+
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+            <section class="menu-section"
+                     id="cat-1"
+                     data-section-id="1">
+
+                <div class="section-title-wrap">
+
+                    <div class="section-title-wrap__badge">
+                        &#x2615;
+                    </div>
+
+                    <div>
+                        <h2 class="section-title">
+                            &#x646;&#x648;&#x634;&#x6CC;&#x62F;&#x646;&#x6CC;&#x200C;&#x647;&#x627;&#x6CC; &#x6AF;&#x631;&#x645;
+                        </h2>
+
+                        <p class="section-desc">
+                            &#x642;&#x647;&#x648;&#x647; &#x648; &#x646;&#x648;&#x634;&#x6CC;&#x62F;&#x646;&#x6CC;&#x200C;&#x647;&#x627;&#x6CC; &#x6AF;&#x631;&#x645;
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="product-grid">
+
+                    <article class="menu-card "
+                             data-item-name="&#x6A9;&#x627;&#x67E;&#x648;&#x686;&#x6CC;&#x646;&#x648;"
+                             data-item-desc="&#x6A9;&#x627;&#x67E;&#x648;&#x686;&#x6CC;&#x646;&#x648; &#x6AF;&#x631;&#x645; &#x648; &#x62A;&#x627;&#x632;&#x647;">
+
+                        <div class="menu-card__media">
+
+                            <img src="./uploads/products/4b29457c6e624794b9d17d3803539f56.webp"
+                                 alt="&#x6A9;&#x627;&#x67E;&#x648;&#x686;&#x6CC;&#x646;&#x648;"
+                                 class="menu-card__image"
+                                 loading="lazy" />
+
+
+                        </div>
+
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+
+                                <h3 class="menu-card__title">
+                                    &#x6A9;&#x627;&#x67E;&#x648;&#x686;&#x6CC;&#x646;&#x648;
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+
+                                    <span class="price-val"
+                                          data-price="180000">
+                                        180,000
+                                    </span>
+
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <p class="menu-card__description">
+                                &#x6A9;&#x627;&#x67E;&#x648;&#x686;&#x6CC;&#x646;&#x648; &#x6AF;&#x631;&#x645; &#x648; &#x62A;&#x627;&#x632;&#x647;
+                            </p>
+
+                            <div class="menu-card__footer">
+
+                                <span class="menu-card__tag">
+                                    دست‌ساز و تازه
+                                </span>
+
+                                <span class="menu-card__action-indicator">
+                                    سفارش در محل
+
+                                    <svg width="12"
+                                         height="12"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="2.5"
+                                         aria-hidden="true">
+
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card "
+                             data-item-name="&#x62F;&#x628;&#x644; &#x627;&#x633;&#x67E;&#x631;&#x633;&#x648;"
+                             data-item-desc="&#x627;&#x633;&#x67E;&#x631;&#x633;&#x648; &#x6AF;&#x631;&#x645; &#x648; &#x62E;&#x648;&#x634; &#x639;&#x637;&#x631;">
+
+                        <div class="menu-card__media">
+
+                            <img src="./uploads/products/c127f4ad00bd4923872a0c98eda9a954.png"
+                                 alt="&#x62F;&#x628;&#x644; &#x627;&#x633;&#x67E;&#x631;&#x633;&#x648;"
+                                 class="menu-card__image"
+                                 loading="lazy" />
+
+
+                        </div>
+
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+
+                                <h3 class="menu-card__title">
+                                    &#x62F;&#x628;&#x644; &#x627;&#x633;&#x67E;&#x631;&#x633;&#x648;
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+
+                                    <span class="price-val"
+                                          data-price="79000">
+                                        79,000
+                                    </span>
+
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <p class="menu-card__description">
+                                &#x627;&#x633;&#x67E;&#x631;&#x633;&#x648; &#x6AF;&#x631;&#x645; &#x648; &#x62E;&#x648;&#x634; &#x639;&#x637;&#x631;
+                            </p>
+
+                            <div class="menu-card__footer">
+
+                                <span class="menu-card__tag">
+                                    دست‌ساز و تازه
+                                </span>
+
+                                <span class="menu-card__action-indicator">
+                                    سفارش در محل
+
+                                    <svg width="12"
+                                         height="12"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="2.5"
+                                         aria-hidden="true">
+
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card "
+                             data-item-name="&#x633;&#x631;&#x648;&#x6CC;&#x633; &#x686;&#x627;&#x6CC;"
+                             data-item-desc="&#x686;&#x627;&#x6CC; &#x6AF;&#x631;&#x645; &#x628;&#x627; &#x639;&#x637;&#x631; &#x6AF;&#x644; &#x645;&#x62D;&#x645;&#x62F;&#x6CC;">
+
+                        <div class="menu-card__media">
+
+                            <img src="./uploads/products/dd529e9a2c984145a67508e0f02883f4.png"
+                                 alt="&#x633;&#x631;&#x648;&#x6CC;&#x633; &#x686;&#x627;&#x6CC;"
+                                 class="menu-card__image"
+                                 loading="lazy" />
+
+
+                        </div>
+
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+
+                                <h3 class="menu-card__title">
+                                    &#x633;&#x631;&#x648;&#x6CC;&#x633; &#x686;&#x627;&#x6CC;
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+
+                                    <span class="price-val"
+                                          data-price="450000">
+                                        450,000
+                                    </span>
+
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <p class="menu-card__description">
+                                &#x686;&#x627;&#x6CC; &#x6AF;&#x631;&#x645; &#x628;&#x627; &#x639;&#x637;&#x631; &#x6AF;&#x644; &#x645;&#x62D;&#x645;&#x62F;&#x6CC;
+                            </p>
+
+                            <div class="menu-card__footer">
+
+                                <span class="menu-card__tag">
+                                    دست‌ساز و تازه
+                                </span>
+
+                                <span class="menu-card__action-indicator">
+                                    سفارش در محل
+
+                                    <svg width="12"
+                                         height="12"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="2.5"
+                                         aria-hidden="true">
+
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+            <section class="menu-section"
+                     id="cat-2"
+                     data-section-id="2">
+
+                <div class="section-title-wrap">
+
+                    <div class="section-title-wrap__badge">
+                        &#x1F964;
+                    </div>
+
+                    <div>
+                        <h2 class="section-title">
+                            &#x646;&#x648;&#x634;&#x6CC;&#x62F;&#x646;&#x6CC;&#x200C;&#x647;&#x627;&#x6CC; &#x633;&#x631;&#x62F;
+                        </h2>
+
+                        <p class="section-desc">
+                            &#x646;&#x648;&#x634;&#x6CC;&#x62F;&#x646;&#x6CC;&#x200C;&#x647;&#x627;&#x6CC; &#x62E;&#x646;&#x6A9; &#x648; &#x62A;&#x627;&#x628;&#x633;&#x62A;&#x627;&#x646;&#x6CC;
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="product-grid">
+
+                    <article class="menu-card "
+                             data-item-name="&#x622;&#x6CC;&#x633; &#x644;&#x62A;&#x647;"
+                             data-item-desc="&#x6CC;&#x6A9; &#x646;&#x648;&#x634;&#x6CC;&#x62F;&#x646;&#x6CC; &#x62E;&#x646;&#x6A9;">
+
+                        <div class="menu-card__media">
+
+                            <img src="./uploads/products/1f33df1ad5884350a89fbc13136dd9c4.png"
+                                 alt="&#x622;&#x6CC;&#x633; &#x644;&#x62A;&#x647;"
+                                 class="menu-card__image"
+                                 loading="lazy" />
+
+
+                        </div>
+
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+
+                                <h3 class="menu-card__title">
+                                    &#x622;&#x6CC;&#x633; &#x644;&#x62A;&#x647;
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+
+                                    <span class="price-val"
+                                          data-price="240000">
+                                        240,000
+                                    </span>
+
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <p class="menu-card__description">
+                                &#x6CC;&#x6A9; &#x646;&#x648;&#x634;&#x6CC;&#x62F;&#x646;&#x6CC; &#x62E;&#x646;&#x6A9;
+                            </p>
+
+                            <div class="menu-card__footer">
+
+                                <span class="menu-card__tag">
+                                    دست‌ساز و تازه
+                                </span>
+
+                                <span class="menu-card__action-indicator">
+                                    سفارش در محل
+
+                                    <svg width="12"
+                                         height="12"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="2.5"
+                                         aria-hidden="true">
+
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card "
+                             data-item-name="&#x644;&#x6CC;&#x645;&#x648;&#x646;&#x627;&#x62F; &#x62A;&#x6AF;&#x631;&#x6CC;"
+                             data-item-desc="&#x644;&#x6CC;&#x645;&#x648;&#x646;&#x627;&#x62F; &#x62A;&#x6AF;&#x631;&#x6CC; &#x645;&#x62E;&#x635;&#x648;&#x635; &#x6A9;&#x627;&#x641;&#x6CC; &#x634;&#x627;&#x67E; &#x631;&#x627;&#x62F;&#x6CC;&#x646;&#x648;">
+
+                        <div class="menu-card__media">
+
+                            <img src="./uploads/products/a1d6db99c31f48048e17df862abb31d4.png"
+                                 alt="&#x644;&#x6CC;&#x645;&#x648;&#x646;&#x627;&#x62F; &#x62A;&#x6AF;&#x631;&#x6CC;"
+                                 class="menu-card__image"
+                                 loading="lazy" />
+
+
+                        </div>
+
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+
+                                <h3 class="menu-card__title">
+                                    &#x644;&#x6CC;&#x645;&#x648;&#x646;&#x627;&#x62F; &#x62A;&#x6AF;&#x631;&#x6CC;
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+
+                                    <span class="price-val"
+                                          data-price="160000">
+                                        160,000
+                                    </span>
+
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <p class="menu-card__description">
+                                &#x644;&#x6CC;&#x645;&#x648;&#x646;&#x627;&#x62F; &#x62A;&#x6AF;&#x631;&#x6CC; &#x645;&#x62E;&#x635;&#x648;&#x635; &#x6A9;&#x627;&#x641;&#x6CC; &#x634;&#x627;&#x67E; &#x631;&#x627;&#x62F;&#x6CC;&#x646;&#x648;
+                            </p>
+
+                            <div class="menu-card__footer">
+
+                                <span class="menu-card__tag">
+                                    دست‌ساز و تازه
+                                </span>
+
+                                <span class="menu-card__action-indicator">
+                                    سفارش در محل
+
+                                    <svg width="12"
+                                         height="12"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="2.5"
+                                         aria-hidden="true">
+
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card "
+                             data-item-name="&#x622;&#x628; &#x645;&#x639;&#x62F;&#x646;&#x6CC; &#x62E;&#x646;&#x6A9; - 250&#x645;&#x6CC;&#x644;&#x6CC; &#x644;&#x6CC;&#x62A;&#x631;"
+                             data-item-desc="&#x6AF;&#x648;&#x627;&#x631;&#x627; &#x628;&#x646;&#x648;&#x634;&#x6CC;&#x62F;">
+
+                        <div class="menu-card__media">
+
+                            <img src="./uploads/products/f8a7150f109340a988e56406b98662e2.png"
+                                 alt="&#x622;&#x628; &#x645;&#x639;&#x62F;&#x646;&#x6CC; &#x62E;&#x646;&#x6A9; - 250&#x645;&#x6CC;&#x644;&#x6CC; &#x644;&#x6CC;&#x62A;&#x631;"
+                                 class="menu-card__image"
+                                 loading="lazy" />
+
+
+                        </div>
+
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+
+                                <h3 class="menu-card__title">
+                                    &#x622;&#x628; &#x645;&#x639;&#x62F;&#x646;&#x6CC; &#x62E;&#x646;&#x6A9; - 250&#x645;&#x6CC;&#x644;&#x6CC; &#x644;&#x6CC;&#x62A;&#x631;
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+
+                                    <span class="price-val"
+                                          data-price="20000">
+                                        20,000
+                                    </span>
+
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <p class="menu-card__description">
+                                &#x6AF;&#x648;&#x627;&#x631;&#x627; &#x628;&#x646;&#x648;&#x634;&#x6CC;&#x62F;
+                            </p>
+
+                            <div class="menu-card__footer">
+
+                                <span class="menu-card__tag">
+                                    دست‌ساز و تازه
+                                </span>
+
+                                <span class="menu-card__action-indicator">
+                                    سفارش در محل
+
+                                    <svg width="12"
+                                         height="12"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="2.5"
+                                         aria-hidden="true">
+
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+            <section class="menu-section"
+                     id="cat-3"
+                     data-section-id="3">
+
+                <div class="section-title-wrap">
+
+                    <div class="section-title-wrap__badge">
+                        &#x1F370;
+                    </div>
+
+                    <div>
+                        <h2 class="section-title">
+                            &#x62F;&#x633;&#x631; &#x648; &#x6A9;&#x6CC;&#x6A9;
+                        </h2>
+
+                        <p class="section-desc">
+                            &#x627;&#x646;&#x648;&#x627;&#x639; &#x6A9;&#x6CC;&#x6A9; &#x648; &#x62F;&#x633;&#x631;
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="product-grid">
+
+                    <article class="menu-card "
+                             data-item-name="&#x6A9;&#x6CC;&#x6A9; &#x62E;&#x6CC;&#x633; &#x634;&#x6A9;&#x644;&#x627;&#x62A;&#x6CC; - 250&#x6AF;&#x631;&#x645;&#x6CC;"
+                             data-item-desc="&#x6A9;&#x6CC;&#x6A9; &#x62E;&#x6CC;&#x633; &#x645;&#x62E;&#x635;&#x648;&#x635; &#x6A9;&#x627;&#x641;&#x6CC; &#x634;&#x627;&#x67E; &#x631;&#x627;&#x62F;&#x6CC;&#x646;&#x648; &#x628;&#x627; &#x634;&#x6A9;&#x644;&#x627;&#x62A; &#x62A;&#x644;&#x62E;">
+
+                        <div class="menu-card__media">
+
+                            <img src="./uploads/products/c265b9291fd9491f84f6f70db33fd6be.png"
+                                 alt="&#x6A9;&#x6CC;&#x6A9; &#x62E;&#x6CC;&#x633; &#x634;&#x6A9;&#x644;&#x627;&#x62A;&#x6CC; - 250&#x6AF;&#x631;&#x645;&#x6CC;"
+                                 class="menu-card__image"
+                                 loading="lazy" />
+
+
+                        </div>
+
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+
+                                <h3 class="menu-card__title">
+                                    &#x6A9;&#x6CC;&#x6A9; &#x62E;&#x6CC;&#x633; &#x634;&#x6A9;&#x644;&#x627;&#x62A;&#x6CC; - 250&#x6AF;&#x631;&#x645;&#x6CC;
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+
+                                    <span class="price-val"
+                                          data-price="90000">
+                                        90,000
+                                    </span>
+
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <p class="menu-card__description">
+                                &#x6A9;&#x6CC;&#x6A9; &#x62E;&#x6CC;&#x633; &#x645;&#x62E;&#x635;&#x648;&#x635; &#x6A9;&#x627;&#x641;&#x6CC; &#x634;&#x627;&#x67E; &#x631;&#x627;&#x62F;&#x6CC;&#x646;&#x648; &#x628;&#x627; &#x634;&#x6A9;&#x644;&#x627;&#x62A; &#x62A;&#x644;&#x62E;
+                            </p>
+
+                            <div class="menu-card__footer">
+
+                                <span class="menu-card__tag">
+                                    دست‌ساز و تازه
+                                </span>
+
+                                <span class="menu-card__action-indicator">
+                                    سفارش در محل
+
+                                    <svg width="12"
+                                         height="12"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="2.5"
+                                         aria-hidden="true">
+
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <div id="no-search-results"
+                 class="state-empty"
+                 style="display: none; padding: 40px 0;">
+
+                <div class="state-empty__orb">
+                    🔍
+                </div>
+
+                <h3 class="state-empty__title">
+                    طعم مورد نظر پیدا نشد!
+                </h3>
+
+                <p class="state-empty__text">
+                    کلمه دیگری را جستجو کنید یا از باریستای ما سوال بفرمایید.
+                </p>
+
+            </div>
+
+        </main>
+
     </div>
 
+    <script>
+    (function () {
+        "use strict";
+
+        /*
+         * تبدیل قیمت‌ها به فرمت فارسی
+         */
+        document.querySelectorAll(".price-val").forEach(function (element) {
+            const rawPrice = Number(element.getAttribute("data-price"));
+
+            if (!Number.isNaN(rawPrice)) {
+                element.textContent = rawPrice.toLocaleString("fa-IR");
+            }
+        });
+
+        const searchInput = document.getElementById("menu-search");
+        const clearButton = document.getElementById("search-clear-btn");
+        const noResults = document.getElementById("no-search-results");
+
+        const sections = Array.from(
+            document.querySelectorAll(".menu-section")
+        );
+
+        const navPills = Array.from(
+            document.querySelectorAll(".nav-pill")
+        );
+
+        /*
+         * جستجوی زنده
+         */
+        if (searchInput && clearButton) {
+            searchInput.addEventListener("input", function () {
+                const query = searchInput.value.trim().toLowerCase();
+
+                clearButton.style.display = query ? "flex" : "none";
+
+                let totalFound = 0;
+
+                sections.forEach(function (section) {
+                    const cards = Array.from(
+                        section.querySelectorAll(".menu-card")
+                    );
+
+                    let visibleCards = 0;
+
+                    cards.forEach(function (card) {
+                        const itemName = (
+                            card.getAttribute("data-item-name") || ""
+                        ).toLowerCase();
+
+                        const itemDescription = (
+                            card.getAttribute("data-item-desc") || ""
+                        ).toLowerCase();
+
+                        const isMatch =
+                            !query ||
+                            itemName.includes(query) ||
+                            itemDescription.includes(query);
+
+                        card.style.display = isMatch ? "flex" : "none";
+
+                        if (isMatch) {
+                            visibleCards++;
+                        }
+                    });
+
+                    section.style.display =
+                        visibleCards > 0 ? "block" : "none";
+
+                    totalFound += visibleCards;
+                });
+
+                if (noResults) {
+                    noResults.style.display =
+                        totalFound === 0 ? "block" : "none";
+                }
+            });
+
+            clearButton.addEventListener("click", function () {
+                searchInput.value = "";
+                searchInput.dispatchEvent(new Event("input"));
+                searchInput.focus();
+            });
+        }
+
+        /*
+         * اسکرول نرم دسته‌بندی‌ها
+         */
+        navPills.forEach(function (pill) {
+            pill.addEventListener("click", function (event) {
+                const targetId = pill.getAttribute("href");
+
+                if (!targetId || !targetId.startsWith("#")) {
+                    return;
+                }
+
+                const targetElement = document.querySelector(targetId);
+
+                if (!targetElement) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                const navigationHeight = 135;
+
+                const targetPosition =
+                    targetElement.getBoundingClientRect().top +
+                    window.scrollY -
+                    navigationHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: "smooth"
+                });
+
+                navPills.forEach(function (item) {
+                    item.classList.remove("nav-pill--active");
+                });
+
+                pill.classList.add("nav-pill--active");
+            });
+        });
+
+        /*
+         * ScrollSpy
+         */
+        let scrollTimeout;
+
+        window.addEventListener(
+            "scroll",
+            function () {
+                clearTimeout(scrollTimeout);
+
+                scrollTimeout = setTimeout(function () {
+                    const scrollPosition = window.scrollY + 160;
+
+                    sections.forEach(function (section) {
+                        if (section.style.display === "none") {
+                            return;
+                        }
+
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.offsetHeight;
+
+                        const isActive =
+                            scrollPosition >= sectionTop &&
+                            scrollPosition < sectionTop + sectionHeight;
+
+                        if (!isActive) {
+                            return;
+                        }
+
+                        const sectionId = section.getAttribute("id");
+
+                        navPills.forEach(function (pill) {
+                            const isCurrent =
+                                pill.getAttribute("href") === "#" + sectionId;
+
+                            pill.classList.toggle(
+                                "nav-pill--active",
+                                isCurrent
+                            );
+
+                            if (isCurrent) {
+                                pill.scrollIntoView({
+                                    behavior: "smooth",
+                                    inline: "center",
+                                    block: "nearest"
+                                });
+                            }
+                        });
+                    });
+                }, 30);
+            },
+            {
+                passive: true
+            }
+        );
+    })();
+    </script>
+
+    <!-- Visual Studio Browser Link -->
+   
 </body>
 </html>
