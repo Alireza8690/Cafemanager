@@ -1,2336 +1,2188 @@
-<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="theme-color" content="#050403">
-    <meta name="description" content="منوی دیجیتال کافه رادینو">
-    <title>منوی دیجیتال کافه رادینو</title>
+    <meta name="theme-color" content="#0b1220">
+    <title>منوی دیجیتال کافه رادینو - کافه</title>
     <style>
-:root {
-    --bg-0: #050403;
-    --bg-1: #090706;
-    --bg-2: #100c09;
-    --bg-3: #17110d;
-    --glass-1: rgba(255, 255, 255, .035);
-    --glass-2: rgba(255, 255, 255, .055);
-    --glass-3: rgba(255, 255, 255, .075);
-    --gold-1: #b97835;
-    --gold-2: #d49a52;
-    --gold-3: #efb967;
-    --gold-4: #ffe0a3;
-    --coffee-1: #4c2c19;
-    --coffee-2: #70401f;
-    --text-1: #fffaf4;
-    --text-2: #d8cec5;
-    --text-3: #9e938a;
-    --text-4: #70665e;
-    --success: #42e889;
-    --danger: #ff817c;
-    --border-1: rgba(255, 255, 255, .055);
-    --border-2: rgba(255, 255, 255, .09);
-    --border-gold: rgba(212, 154, 82, .20);
-    --border-gold-active: rgba(239, 185, 103, .48);
-    --radius-sm: 9px;
-    --radius-md: 13px;
-    --radius-lg: 17px;
-    --radius-xl: 22px;
-    --radius-2xl: 28px;
-    --radius-pill: 999px;
-    --shadow-sm: 0 6px 18px rgba(0, 0, 0, .22);
-    --shadow-md: 0 14px 36px rgba(0, 0, 0, .34);
-    --shadow-lg: 0 24px 65px rgba(0, 0, 0, .48);
-    --font: system-ui, -apple-system, "Vazirmatn", "Segoe UI", Roboto, sans-serif;
-}
-
-/* RESET */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    -webkit-tap-highlight-color: transparent;
-}
-
-html {
-    background: var(--bg-0);
-    scroll-behavior: smooth;
-}
-
-body {
-    position: relative;
-    isolation: isolate;
-    min-height: 100vh;
-    overflow-x: hidden;
-    direction: rtl;
-    color: var(--text-1);
-    font-family: var(--font);
-    line-height: 1.5;
-    background: var(--bg-0);
-}
-
-    /* تصویر پس‌زمینه اصلی */
-
-    body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: -2;
-        pointer-events: none;
-        background-image: linear-gradient(180deg, rgba(5, 4, 3, .20) 0%, rgba(5, 4, 3, .45) 40%, rgba(5, 4, 3, .75) 75%, rgba(5, 4, 3, .95) 100%), url("images/Background.png");
-        background-repeat: no-repeat;
-        background-position: center top;
-        background-size: cover;
-        opacity: 1;
-    }
-
-    /* بافت ظریف و نور طلایی روی تصویر */
-
-    body::after {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-        pointer-events: none;
-        background-image: radial-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px), linear-gradient(115deg, transparent 0%, rgba(239, 185, 103, .025) 35%, transparent 62%);
-        background-size: 5px 5px, 100% 100%;
-        opacity: .30;
-    }
-
-/* MAIN */
-
-.menu-app {
-    position: relative;
-    width: 100%;
-    max-width: 760px;
-    min-height: 100vh;
-    margin: 0 auto;
-    padding-bottom: 100px;
-}
-
-/* نورهای محیطی */
-
-.ambient-glow {
-    position: fixed;
-    pointer-events: none;
-    border-radius: 50%;
-    z-index: -1;
-}
-
-.ambient-glow--top {
-    width: 300px;
-    height: 300px;
-    top: -110px;
-    right: -100px;
-    background: radial-gradient(circle, rgba(239, 185, 103, .13), transparent 68%);
-    filter: blur(50px);
-    opacity: .75;
-}
-
-.ambient-glow--mid {
-    width: 340px;
-    height: 340px;
-    left: -180px;
-    bottom: 12%;
-    background: radial-gradient(circle, rgba(112, 64, 31, .13), transparent 70%);
-    filter: blur(55px);
-    opacity: .65;
-}
-
-/* HERO (شیشه‌ای شفاف با دید کامل به بک‌گراند) */
-
-.hero {
-    position: relative;
-    z-index: 10;
-    margin: 0;
-    padding: 23px 17px 18px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, .12);
-    border-top: 0;
-    border-bottom-left-radius: var(--radius-2xl);
-    border-bottom-right-radius: var(--radius-2xl);
-    background: rgba(18, 14, 11, .28);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
-    backdrop-filter: blur(12px) saturate(1.25);
-    -webkit-backdrop-filter: blur(12px) saturate(1.25);
-}
-
-    .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: linear-gradient(125deg, rgba(255, 255, 255, .05), transparent 30%, transparent 70%, rgba(239, 185, 103, .02));
-    }
-
-    .hero::after {
-        content: "";
-        position: absolute;
-        left: 14%;
-        right: 14%;
-        bottom: 0;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(239, 185, 103, .35), transparent);
-    }
-
-/* وضعیت سفارش */
-
-.hero__badge {
-    position: relative;
-    z-index: 2;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 11px;
-    margin-bottom: 15px;
-    border: 1px solid rgba(66, 232, 137, .25);
-    border-radius: var(--radius-pill);
-    background: rgba(66, 232, 137, .08);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    color: #72ef9c;
-    font-size: .68rem;
-    font-weight: 700;
-    box-shadow: inset 0 1px rgba(255, 255, 255, .05);
-}
-
-.live-dot {
-    width: 7px;
-    height: 7px;
-    flex-shrink: 0;
-    border-radius: 50%;
-    background: var(--success);
-    box-shadow: 0 0 0 4px rgba(66, 232, 137, .07), 0 0 12px rgba(66, 232, 137, .70);
-    animation: livePulse 2.2s ease-in-out infinite;
-}
-
-@keyframes livePulse {
-    0%, 100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: .65;
-        transform: scale(1.2);
-    }
-}
-
-/* برند */
-
-.hero__brand {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    margin-bottom: 19px;
-}
-
-.hero__logo-wrap {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 57px;
-    height: 57px;
-    min-width: 57px;
-    overflow: hidden;
-    border: 1px solid rgba(239, 185, 103, .35);
-    border-radius: 18px;
-    background: rgba(30, 20, 14, .45);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, .30), inset 0 1px rgba(255, 255, 255, .15);
-}
-
-    .hero__logo-wrap::before {
-        content: "";
-        position: absolute;
-        width: 100px;
-        height: 35px;
-        top: -22px;
-        left: -28px;
-        background: rgba(255, 255, 255, .075);
-        transform: rotate(-28deg);
-    }
-
-    .hero__logo-wrap::after {
-        content: "";
-        position: absolute;
-        inset: 5px;
-        border: 1px solid rgba(255, 255, 255, .06);
-        border-radius: 14px;
-        pointer-events: none;
-    }
-
-/* تصویر لوگو */
-
-.hero__logo-img {
-    position: relative;
-    z-index: 2;
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 6px;
-    object-fit: contain;
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .4));
-}
-
-.hero__text {
-    min-width: 0;
-}
-
-.hero__title {
-    font-size: clamp(1.12rem, 5vw, 1.40rem);
-    font-weight: 900;
-    line-height: 1.35;
-    letter-spacing: -.65px;
-    background: linear-gradient(100deg, #fff 0%, #fff4dd 45%, #e7b56d 82%, #c18442 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero__slogan {
-    margin-top: 2px;
-    color: var(--text-4);
-    font-family: Inter, system-ui, sans-serif;
-    font-size: .66rem;
-    font-weight: 600;
-    letter-spacing: .55px;
-}
-
-/* SEARCH (شیشه‌ای) */
-
-.search-container {
-    position: relative;
-    z-index: 2;
-}
-
-.search-box {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.search-box__input {
-    width: 100%;
-    min-height: 50px;
-    padding: 13px 45px 13px 43px;
-    outline: none;
-    border: 1px solid rgba(255, 255, 255, .15);
-    border-radius: var(--radius-xl);
-    background: rgba(255, 255, 255, .07);
-    color: var(--text-1);
-    font-family: inherit;
-    font-size: .81rem;
-    box-shadow: inset 0 1px rgba(255, 255, 255, .08), 0 8px 20px rgba(0, 0, 0, .15);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    transition: border-color .22s ease, background .22s ease, box-shadow .22s ease;
-}
-
-    .search-box__input::placeholder {
-        color: #a89f97;
-    }
-
-    .search-box__input:hover {
-        border-color: rgba(212, 154, 82, .35);
-        background: rgba(255, 255, 255, .09);
-    }
-
-    .search-box__input:focus {
-        border-color: var(--border-gold-active);
-        background: rgba(30, 22, 16, .55);
-        box-shadow: 0 0 0 3px rgba(239, 185, 103, .10), 0 10px 25px rgba(0, 0, 0, .25);
-    }
-
-.search-box__icon {
-    position: absolute;
-    right: 15px;
-    width: 18px;
-    height: 18px;
-    color: var(--gold-2);
-    pointer-events: none;
-    transition: transform .2s ease, color .2s ease;
-}
-
-.search-box:focus-within .search-box__icon {
-    color: var(--gold-3);
-    transform: scale(1.07);
-}
-
-.search-box__clear {
-    position: absolute;
-    left: 11px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    border: 1px solid rgba(255, 255, 255, .10);
-    border-radius: 50%;
-    background: rgba(255, 255, 255, .06);
-    color: #b3a89f;
-    cursor: pointer;
-    font-size: .68rem;
-    transition: transform .2s ease, background .2s ease, color .2s ease;
-}
-
-    .search-box__clear:hover {
-        color: var(--gold-3);
-        background: rgba(239, 185, 103, .15);
-        transform: rotate(90deg);
-    }
-
-/* CATEGORY NAV (شیشه‌ای شناور) */
-
-.category-nav {
-    position: sticky;
-    top: 0;
-    z-index: 30;
-    padding: 10px 11px;
-    border-top: 1px solid rgba(255, 255, 255, .06);
-    border-bottom: 1px solid rgba(255, 255, 255, .08);
-    background: rgba(12, 10, 8, .40);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .20);
-    backdrop-filter: blur(14px) saturate(1.2);
-    -webkit-backdrop-filter: blur(14px) saturate(1.2);
-}
-
-    .category-nav::before {
-        content: "";
-        position: absolute;
-        left: 16%;
-        right: 16%;
-        top: 0;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(239, 185, 103, .25), transparent);
-    }
-
-.category-nav__scroller {
-    display: flex;
-    gap: 7px;
-    overflow-x: auto;
-    padding: 2px 1px 3px;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-}
-
-    .category-nav__scroller::-webkit-scrollbar {
-        display: none;
-    }
-
-/* CATEGORY PILLS */
-
-.nav-pill {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    min-height: 38px;
-    flex-shrink: 0;
-    padding: 7px 14px;
-    border: 1px solid rgba(255, 255, 255, .10);
-    border-radius: var(--radius-pill);
-    background: rgba(255, 255, 255, .06);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    color: #c0b5ab;
-    font-size: .75rem;
-    font-weight: 700;
-    text-decoration: none;
-    white-space: nowrap;
-    box-shadow: inset 0 1px rgba(255, 255, 255, .05);
-    transition: transform .20s ease, color .20s ease, background .20s ease, border-color .20s ease;
-}
-
-    .nav-pill:hover {
-        border-color: rgba(212, 154, 82, .35);
-        background: rgba(255, 255, 255, .10);
-        color: #fff;
-        transform: translateY(-1px);
-    }
-
-    .nav-pill:active {
-        transform: scale(.96);
-    }
-
-.nav-pill__symbol {
-    font-size: .88rem;
-}
-
-.nav-pill--active {
-    border-color: transparent;
-    background: linear-gradient(135deg, var(--gold-4), var(--gold-3) 42%, var(--gold-1));
-    color: #1a1008;
-    font-weight: 900;
-    box-shadow: 0 7px 20px rgba(212, 154, 82, .25), inset 0 1px rgba(255, 255, 255, .5);
-}
-
-    .nav-pill--active .nav-pill__symbol {
-        filter: brightness(0);
-    }
-
-/* CONTENT */
-
-.menu-content {
-    position: relative;
-    z-index: 5;
-    padding: 25px 14px 45px;
-}
-
-.menu-section {
-    margin-bottom: 43px;
-    scroll-margin-top: 75px;
-    content-visibility: auto;
-    contain-intrinsic-size: 0 420px;
-}
-
-/* SECTION HEADER */
-
-.section-title-wrap {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, .055);
-}
-
-    .section-title-wrap::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        bottom: -1px;
-        width: 70px;
-        height: 1px;
-        background: linear-gradient(90deg, var(--gold-3), transparent);
-    }
-
-.section-title-wrap__badge {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
-    border: 1px solid rgba(239, 185, 103, .18);
-    border-radius: 12px;
-    background: linear-gradient(145deg, rgba(239, 185, 103, .105), rgba(255, 255, 255, .025));
-    font-size: 1rem;
-    box-shadow: inset 0 1px rgba(255, 255, 255, .065), 0 7px 18px rgba(0, 0, 0, .20);
-}
-
-    .section-title-wrap__badge::after {
-        content: "";
-        position: absolute;
-        inset: 4px;
-        border: 1px solid rgba(255, 255, 255, .035);
-        border-radius: 9px;
-    }
-
-.section-title {
-    color: var(--gold-4);
-    font-size: 1.08rem;
-    font-weight: 900;
-    line-height: 1.4;
-    letter-spacing: -.25px;
-}
-
-.section-desc {
-    margin-top: 2px;
-    color: var(--text-4);
-    font-size: .68rem;
-}
-
-/* PRODUCTS */
-
-.product-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-/* MENU CARD */
-
-.menu-card {
-    position: relative;
-    display: flex;
-    width: 100%;
-    gap: 13px;
-    padding: 11px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, .08);
-    border-radius: var(--radius-xl);
-    background: linear-gradient(135deg, rgba(255, 255, 255, .060), rgba(255, 255, 255, .023) 52%, rgba(26, 17, 11, .25));
-    box-shadow: var(--shadow-md);
-    isolation: isolate;
-    transition: transform .28s cubic-bezier(.16, 1, .3, 1), border-color .28s ease, background .28s ease, box-shadow .28s ease;
-}
-
-    .menu-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 7%;
-        left: 7%;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .12), transparent);
-        pointer-events: none;
-    }
-
-    .menu-card::after {
-        content: "";
-        position: absolute;
-        right: -110px;
-        bottom: -110px;
-        z-index: -1;
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(239, 185, 103, .09), transparent 68%);
-        pointer-events: none;
-    }
-
-    .menu-card:hover {
-        border-color: rgba(239, 185, 103, .28);
-        background: linear-gradient(135deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .028), rgba(65, 39, 20, .16));
-        box-shadow: 0 18px 45px rgba(0, 0, 0, .45), 0 0 22px rgba(239, 185, 103, .07);
-        transform: translateY(-3px);
-    }
-
-/* PRODUCT IMAGE */
-
-.menu-card__media {
-    position: relative;
-    width: 102px;
-    height: 102px;
-    min-width: 102px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, .08);
-    border-radius: 17px;
-    background: radial-gradient(circle at 35% 25%, #34251b, #130f0c 70%);
-    box-shadow: 0 10px 23px rgba(0, 0, 0, .32), inset 0 1px rgba(255, 255, 255, .055);
-}
-
-    .menu-card__media::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 2;
-        pointer-events: none;
-        background: linear-gradient(135deg, rgba(255, 255, 255, .10), transparent 28%, transparent 75%, rgba(0, 0, 0, .16));
-    }
-
-.menu-card__image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    transition: transform .55s cubic-bezier(.16, 1, .3, 1);
-}
-
-.menu-card:hover .menu-card__image {
-    transform: translateZ(0) scale(1.075);
-}
-
-.menu-card__image-dummy {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    color: rgba(239, 185, 103, .40);
-    font-size: 2.2rem;
-    background: radial-gradient(circle, rgba(239, 185, 103, .10), transparent 45%), linear-gradient(145deg, #2b2119, #120e0b);
-}
-
-/* SOLD OUT */
-
-.soldout-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(7, 6, 5, .74);
-}
-
-.soldout-tag {
-    padding: 5px 10px;
-    border: 1px solid rgba(255, 129, 124, .30);
-    border-radius: var(--radius-pill);
-    background: rgba(255, 129, 124, .09);
-    color: #ffaaa5;
-    font-size: .64rem;
-    font-weight: 800;
-}
-
-/* DETAILS */
-
-.menu-card__details {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: space-between;
-    min-width: 0;
-}
-
-.menu-card__top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 9px;
-}
-
-.menu-card__title {
-    min-width: 0;
-    color: var(--text-1);
-    font-size: .93rem;
-    font-weight: 800;
-    line-height: 1.45;
-    letter-spacing: -.15px;
-    word-break: break-word;
-}
-
-/* PRICE */
-
-.menu-card__price-badge {
-    display: inline-flex;
-    align-items: baseline;
-    flex-shrink: 0;
-    gap: 4px;
-    padding: 5px 9px;
-    border: 1px solid rgba(239, 185, 103, .19);
-    border-radius: 10px;
-    background: linear-gradient(135deg, rgba(239, 185, 103, .12), rgba(239, 185, 103, .035));
-    box-shadow: inset 0 1px rgba(255, 255, 255, .045);
-}
-
-.price-val {
-    color: var(--gold-3);
-    font-size: .92rem;
-    font-weight: 900;
-    line-height: 1;
-    letter-spacing: -.45px;
-    text-shadow: 0 0 13px rgba(239, 185, 103, .13);
-}
-
-.price-currency {
-    color: #c5aa86;
-    font-size: .55rem;
-    font-weight: 600;
-}
-
-/* DESCRIPTION */
-
-.menu-card__description {
-    display: -webkit-box;
-    margin: 6px 0 7px;
-    overflow: hidden;
-    color: var(--text-3);
-    font-size: .73rem;
-    line-height: 1.62;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-}
-
-.menu-card__description--subtle {
-    color: var(--text-4);
-}
-
-/* FOOTER */
-
-.menu-card__footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    padding-top: 3px;
-}
-
-.menu-card__tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 3px 8px;
-    border: 1px solid rgba(255, 255, 255, .055);
-    border-radius: 7px;
-    background: rgba(255, 255, 255, .028);
-    color: var(--text-4);
-    font-size: .59rem;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.menu-card__action-indicator {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    color: #cfa56c;
-    font-size: .62rem;
-    font-weight: 700;
-    opacity: .85;
-    transition: transform .2s ease, color .2s ease;
-}
-
-.menu-card:hover .menu-card__action-indicator {
-    color: var(--gold-3);
-    transform: translateX(-2px);
-}
-
-/* SOLD OUT CARD */
-
-.menu-card--soldout {
-    opacity: .48;
-    filter: grayscale(.30);
-}
-
-    .menu-card--soldout:hover {
-        border-color: rgba(255, 255, 255, .075);
-        box-shadow: var(--shadow-md);
-        transform: none;
-    }
-
-    .menu-card--soldout .menu-card__price-badge {
-        border-color: rgba(255, 255, 255, .065);
-        background: rgba(255, 255, 255, .025);
-    }
-
-    .menu-card--soldout .price-val {
-        color: #91877f;
-        text-shadow: none;
-    }
-
-/* EMPTY STATE */
-
-.state-empty {
-    padding: 65px 20px;
-    text-align: center;
-}
-
-.state-empty__orb {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 74px;
-    height: 74px;
-    margin: 0 auto 17px;
-    border: 1px solid rgba(239, 185, 103, .16);
-    border-radius: 23px;
-    background: linear-gradient(145deg, rgba(239, 185, 103, .10), rgba(255, 255, 255, .025));
-    box-shadow: 0 15px 35px rgba(0, 0, 0, .28);
-    font-size: 2.2rem;
-}
-
-.state-empty__title {
-    color: var(--gold-4);
-    font-size: 1.04rem;
-    font-weight: 800;
-}
-
-.state-empty__text {
-    max-width: 340px;
-    margin: 7px auto 0;
-    color: var(--text-3);
-    font-size: .77rem;
-    line-height: 1.8;
-}
-
-.section-empty {
-    padding: 19px;
-    border: 1px dashed rgba(212, 154, 82, .18);
-    border-radius: var(--radius-lg);
-    background: rgba(255, 255, 255, .022);
-    color: var(--text-4);
-    font-size: .75rem;
-    text-align: center;
-}
-
-/* SCROLLBAR */
-
-::-webkit-scrollbar {
-    width: 5px;
-    height: 4px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, .01);
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 999px;
-    background: rgba(212, 154, 82, .32);
-}
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: rgba(239, 185, 103, .52);
-    }
-
-/* SELECTION */
-
-::selection {
-    color: #1a0f06;
-    background: rgba(239, 185, 103, .78);
-}
-
-/* FOCUS */
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible {
-    outline: 2px solid rgba(239, 185, 103, .70);
-    outline-offset: 3px;
-}
-
-/* MOBILE */
-
-@media (max-width: 520px) {
-    .hero {
-        padding: 20px 14px 16px;
-    }
-
-    .hero__brand {
-        gap: 11px;
-        margin-bottom: 16px;
-    }
-
-    .hero__logo-wrap {
-        width: 52px;
-        height: 52px;
-        min-width: 52px;
-        border-radius: 16px;
-    }
-
-        .hero__logo-wrap::after {
-            border-radius: 12px;
+        html, body {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            min-height: 100%;
+            background-color: #0b1220;
+            color: #e8eefc;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Vazirmatn", Tahoma, sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
-    .hero__logo-img {
-        padding: 5px;
-    }
-
-    .hero__title {
-        font-size: 1.10rem;
-    }
-
-    .hero__slogan {
-        font-size: .60rem;
-    }
-
-    .hero__badge {
-        font-size: .62rem;
-    }
-
-    .category-nav {
-        padding: 9px;
-    }
-
-    .nav-pill {
-        min-height: 36px;
-        padding: 7px 12px;
-        font-size: .71rem;
-    }
-
-    .menu-content {
-        padding: 22px 11px 40px;
-    }
-
-    .menu-card {
-        gap: 10px;
-        padding: 9px;
-        border-radius: 18px;
-    }
-
-    .menu-card__media {
-        width: 88px;
-        height: 88px;
-        min-width: 88px;
-        border-radius: 14px;
-    }
-
-    .menu-card__title {
-        font-size: .85rem;
-    }
-
-    .menu-card__price-badge {
-        padding: 4px 7px;
-    }
-
-    .price-val {
-        font-size: .79rem;
-    }
-
-    .price-currency {
-        font-size: .48rem;
-    }
-
-    .menu-card__description {
-        font-size: .68rem;
-    }
-
-    .menu-card__tag {
-        font-size: .55rem;
-    }
-
-    .menu-card__action-indicator {
-        font-size: .57rem;
-    }
-
-    .menu-card:hover {
-        transform: none;
-    }
-
-        .menu-card:hover .menu-card__image {
-            transform: none;
+        * {
+            box-sizing: border-box;
         }
-}
 
-/* VERY SMALL PHONES */
-
-@media (max-width: 370px) {
-    .menu-card {
-        gap: 8px;
-    }
-
-    .menu-card__media {
-        width: 78px;
-        height: 78px;
-        min-width: 78px;
-    }
-
-    .menu-card__title {
-        font-size: .80rem;
-    }
-
-    .price-val {
-        font-size: .73rem;
-    }
-
-    .price-currency {
-        display: none;
-    }
-
-    .menu-card__description {
-        font-size: .63rem;
-    }
-
-    .menu-card__action-indicator {
-        display: none;
-    }
-}
-
-/* DESKTOP */
-
-@media (min-width: 761px) {
-    .menu-app {
-        padding-bottom: 120px;
-    }
-
-    .hero {
-        margin-top: 12px;
-        border: 1px solid rgba(255, 255, 255, .12);
-        border-radius: var(--radius-2xl);
-    }
-
-    .category-nav {
-        top: 10px;
-        margin: 12px 10px 0;
-        border: 1px solid rgba(255, 255, 255, .10);
-        border-radius: var(--radius-xl);
-    }
-
-    .menu-content {
-        padding-right: 12px;
-        padding-left: 12px;
-    }
-
-    .menu-card {
-        padding: 13px;
-    }
-
-    .menu-card__media {
-        width: 112px;
-        height: 112px;
-        min-width: 112px;
-    }
-
-    .menu-card__title {
-        font-size: .99rem;
-    }
-
-    .menu-card__description {
-        font-size: .78rem;
-    }
-}
-
-/* REDUCED MOTION */
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
-
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
-<div class="menu-app">
-
-<div class="ambient-glow ambient-glow--top"></div>
-<div class="ambient-glow ambient-glow--mid"></div>
-
-<header class="hero">
-
-<div class="hero__badge">
-<span class="live-dot"></span>
-سفارش حضوری و بیرون‌بر فعال است
-</div>
-
-<div class="hero__brand">
-
-<div class="hero__logo-wrap">
-<img src="images/logo.png" alt="لوگو کافه تخصصی رادینو" class="hero__logo-img" />
-</div>
-
-<div class="hero__text">
-<h1 class="hero__title">
-کـافـی شاپ رادیـنو
-</h1>
-
-<p class="hero__slogan">
-Specialty Coffee & Artisan Roasters
-</p>
-</div>
-
-</div>
-
-<div class="search-container">
-<div class="search-box">
-
-<svg class="search-box__icon"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
-stroke-linecap="round"
-stroke-linejoin="round"
-aria-hidden="true">
-
-<circle cx="11" cy="11" r="8"></circle>
-<line x1="21"
-y1="21"
-x2="16.65"
-y2="16.65"></line>
-</svg>
-
-<input id="menu-search"
-class="search-box__input"
-type="search"
-inputmode="search"
-placeholder="جستجوی طعم دلخواه (لاته، چیزکیک، سیروپ...)"
-autocomplete="off"
-aria-label="جستجوی منو" />
-
-<button id="search-clear-btn"
-class="search-box__clear"
-type="button"
-aria-label="پاک کردن جستجو"
-style="display: none;">
-✕
-</button>
 
-</div>
-</div>
-
-</header>
-
-<nav class="category-nav"
-id="category-nav"
-aria-label="دسته‌بندی‌های منو">
 
-<div class="category-nav__scroller">
+    <link rel="stylesheet" href="/css/menu.css?v=UvLPZAb9HgHtaClo7FZn5W2vMw1NXuUZhIu_jPAIKLk">
 
-<a href="#cat-4"
-class="nav-pill nav-pill--active"
-data-target="cat-4">
+    <!-- لودر تمام صفحه تا زمان لود کامل عکس‌ها -->
+    <div id="page-preloader" class="loaded">
+        <div class="loader-cup">☕</div>
+        <div class="loader-spinner"></div>
+        <div class="loader-text">در حال آماده‌سازی منو...</div>
+    </div>
 
-<span class="nav-pill__symbol">
-🚬
-</span>
+    <div class="menu-app menu-ready" id="main-menu-app">
 
-<span class="nav-pill__title">
-قل قلی
-</span>
+        <div class="ambient-glow ambient-glow--top"></div>
+        <div class="ambient-glow ambient-glow--mid"></div>
 
-</a>
-<a href="#cat-1"
-class="nav-pill "
-data-target="cat-1">
+        <header class="hero">
 
-<span class="nav-pill__symbol">
-☕
-</span>
+            <div class="hero__badge">
+                <span class="live-dot"></span>
+                سفارش بیرون‌بر فعال است
+            </div>
 
-<span class="nav-pill__title">
-نوشیدنی‌های گرم
-</span>
+            <div class="hero__brand">
 
-</a>
-<a href="#cat-2"
-class="nav-pill "
-data-target="cat-2">
+                <div class="hero__logo-wrap">
+                    <img src="/images/logo.png?v=0vMN2C8y6Z3piQVKDFUXQR0RbOHpCosPsZlw88vGx6E" alt="لوگو کافه تخصصی رادینو" class="hero__logo-img">
+                </div>
 
-<span class="nav-pill__symbol">
-🥤
-</span>
+                <div class="hero__text">
+                    <h1 class="hero__title">
+                        کـافـی شاپ رادیـنو
+                    </h1>
 
-<span class="nav-pill__title">
-نوشیدنی‌های سرد
-</span>
+                    <p class="hero__slogan">
+                        Specialty Coffee &amp; Artisan Roasters
+                    </p>
+                </div>
 
-</a>
-<a href="#cat-3"
-class="nav-pill "
-data-target="cat-3">
+            </div>
 
-<span class="nav-pill__symbol">
-🍰
-</span>
+            <div class="search-container">
+                <div class="search-box">
 
-<span class="nav-pill__title">
-دسر و کیک
-</span>
+                    <svg class="search-box__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 
-</a>
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
 
-</div>
-</nav>
-<main class="menu-content">
+                    <input id="menu-search" class="search-box__input" type="search" inputmode="search" placeholder="جستجوی طعم دلخواه (لاته، چیزکیک، سیروپ...)" autocomplete="off" aria-label="جستجوی منو">
 
-<section class="menu-section"
-id="cat-4"
-data-section-id="4">
+                    <button id="search-clear-btn" class="search-box__clear" type="button" aria-label="پاک کردن جستجو" style="display: none;">
+                        ✕
+                    </button>
 
-<div class="section-title-wrap">
+                </div>
+            </div>
 
-<div class="section-title-wrap__badge">
-🚬
-</div>
+        </header>
 
-<div>
-<h2 class="section-title">
-قل قلی
-</h2>
+        <nav class="category-nav" id="category-nav" aria-label="دسته‌بندی‌های منو">
 
-<p class="section-desc">
-قلیان
-</p>
-</div>
+            <div class="category-nav__scroller">
 
-</div>
+                <a href="#cat-4" class="nav-pill" data-target="cat-4">
 
-<div class="product-grid">
+                    <span class="nav-pill__symbol">
+                        🫖
+                    </span>
 
-<article class="menu-card "
-data-item-name="قلیان پایه دوسیب"
-data-item-desc="قلیان با طعم دوسیب">
+                    <span class="nav-pill__title">
+                        دمنوش
+                    </span>
 
-<div class="menu-card__media">
+                </a>
+                <a href="#cat-11" class="nav-pill" data-target="cat-11">
 
-<img src="uploads/products/f8f0dd39fbad4b02b904f475a8fa4798.png"
-alt="قلیان پایه دوسیب"
-class="menu-card__image"
-loading="lazy" />
+                    <span class="nav-pill__symbol">
+                        💨
+                    </span>
 
-</div>
+                    <span class="nav-pill__title">
+                        قلیان
+                    </span>
 
-<div class="menu-card__details">
+                </a>
+                <a href="#cat-8" class="nav-pill nav-pill--active" data-target="cat-8">
 
-<div class="menu-card__top">
+                    <span class="nav-pill__symbol">
+                        ♨️
+                    </span>
 
-<h3 class="menu-card__title">
-قلیان پایه دوسیب
-</h3>
+                    <span class="nav-pill__title">
+                        بار گرم
+                    </span>
 
-<div class="menu-card__price-badge">
+                </a>
+                <a href="#cat-7" class="nav-pill" data-target="cat-7">
 
-<span class="price-val"
-data-price="250000">
-250,000
-</span>
+                    <span class="nav-pill__symbol">
+                        🧊
+                    </span>
 
-<span class="price-currency">
-تومان
-</span>
+                    <span class="nav-pill__title">
+                        بار سرد
+                    </span>
 
-</div>
+                </a>
+                <a href="#cat-14" class="nav-pill" data-target="cat-14">
 
-</div>
+                    <span class="nav-pill__symbol">
+                        ❄️
+                    </span>
 
-<p class="menu-card__description">
-قلیان با طعم دوسیب
-</p>
+                    <span class="nav-pill__title">
+                        آیس کافی
+                    </span>
 
-<div class="menu-card__footer">
+                </a>
+                <a href="#cat-15" class="nav-pill" data-target="cat-15">
 
-<span class="menu-card__tag">
-دست‌ساز و تازه
-</span>
+                    <span class="nav-pill__symbol">
+                        🎁
+                    </span>
 
-<span class="menu-card__action-indicator">
-سفارش در محل
+                    <span class="nav-pill__title">
+                        سرویس ها
+                    </span>
 
-<svg width="12"
-height="12"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2.5"
-aria-hidden="true">
+                </a>
 
-<path d="M5 12h14M12 5l7 7-7 7"></path>
-</svg>
-</span>
+            </div>
+        </nav>
+        <main class="menu-content">
 
-</div>
+            <section class="menu-section" id="cat-4" data-section-id="4">
 
-</div>
+                <div class="section-title-wrap">
 
-</article>
-<article class="menu-card "
-data-item-name="قلیان پایه لیمونعناع"
-data-item-desc="قلیان با طبع خنک">
+                    <div class="section-title-wrap__badge">
+                        🫖
+                    </div>
 
-<div class="menu-card__media">
+                    <div>
+                        <h2 class="section-title">
+                            دمنوش
+                        </h2>
 
-<img src="uploads/products/cab1dde8c1f247c8be8b89b26cf73305.png"
-alt="قلیان پایه لیمونعناع"
-class="menu-card__image"
-loading="lazy" />
+                    </div>
 
-</div>
+                </div>
 
-<div class="menu-card__details">
+                <div class="product-grid">
 
-<div class="menu-card__top">
+                    <article class="menu-card " data-item-name="چای باقلوا" data-item-desc="دم‌نوش کلاسیک و انرژی‌بخش ☕">
 
-<h3 class="menu-card__title">
-قلیان پایه لیمونعناع
-</h3>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/d9546fa0e63e45d29f8520e3a5dbe6d7.webp" alt="چای باقلوا" class="menu-card__image">
 
-<div class="menu-card__price-badge">
+                        </div>
 
-<span class="price-val"
-data-price="250000">
-250,000
-</span>
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<span class="price-currency">
-تومان
-</span>
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    چای باقلوا
+                                </h3>
 
-</div>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="80000">۸۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description">
+                                دم‌نوش کلاسیک و انرژی‌بخش ☕
+                            </p>
 
-<p class="menu-card__description">
-قلیان با طبع خنک
-</p>
+                        </div>
 
-<div class="menu-card__footer">
+                    </article>
+                    <article class="menu-card " data-item-name="دمنوش گل گاو زبان" data-item-desc="آرام‌بخش و تسکین‌دهنده 🌸">
 
-<span class="menu-card__tag">
-دست‌ساز و تازه
-</span>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/f3f6918d36d7476b96c0d9dce057ac25.webp" alt="دمنوش گل گاو زبان" class="menu-card__image">
 
-<span class="menu-card__action-indicator">
-سفارش در محل
+                        </div>
 
-<svg width="12"
-height="12"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2.5"
-aria-hidden="true">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<path d="M5 12h14M12 5l7 7-7 7"></path>
-</svg>
-</span>
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    دمنوش گل گاو زبان
+                                </h3>
 
-</div>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="150000">۱۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description">
+                                آرام‌بخش و تسکین‌دهنده 🌸
+                            </p>
 
-</article>
-<article class="menu-card "
-data-item-name="قلیان پایه لاو - LOVE"
-data-item-desc="قلیان با طعم LOVE">
+                        </div>
 
-<div class="menu-card__media">
+                    </article>
+                    <article class="menu-card " data-item-name="دمنوش چای ترش" data-item-desc="خوش‌رنگ با ترشیِ ملایم 🌺">
 
-<img src="uploads/products/0d96ff2cf89b403c9361f9fe39e00ec8.png"
-alt="قلیان پایه لاو - LOVE"
-class="menu-card__image"
-loading="lazy" />
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/652ece2b7ce9452898fdd7ddac640a73.webp" alt="دمنوش چای ترش" class="menu-card__image">
 
-</div>
+                        </div>
 
-<div class="menu-card__details">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<div class="menu-card__top">
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    دمنوش چای ترش
+                                </h3>
 
-<h3 class="menu-card__title">
-قلیان پایه لاو - LOVE
-</h3>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="150000">۱۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-<div class="menu-card__price-badge">
+                            <p class="menu-card__description">
+                                خوش‌رنگ با ترشیِ ملایم 🌺
+                            </p>
 
-<span class="price-val"
-data-price="250000">
-250,000
-</span>
+                        </div>
 
-<span class="price-currency">
-تومان
-</span>
+                    </article>
+                    <article class="menu-card " data-item-name="دمنوش چایی سبز" data-item-desc="سالم، سبک و باطراوت 🍃">
 
-</div>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/8b96463179a847329475d3eb75e39934.webp" alt="دمنوش چایی سبز" class="menu-card__image">
 
-</div>
+                        </div>
 
-<p class="menu-card__description">
-قلیان با طعم LOVE
-</p>
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<div class="menu-card__footer">
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    دمنوش چایی سبز
+                                </h3>
 
-<span class="menu-card__tag">
-دست‌ساز و تازه
-</span>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="150000">۱۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-<span class="menu-card__action-indicator">
-سفارش در محل
+                            <p class="menu-card__description">
+                                سالم، سبک و باطراوت 🍃
+                            </p>
 
-<svg width="12"
-height="12"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2.5"
-aria-hidden="true">
+                        </div>
 
-<path d="M5 12h14M12 5l7 7-7 7"></path>
-</svg>
-</span>
+                    </article>
+                    <article class="menu-card " data-item-name="دمنوش آرامش" data-item-desc="">
 
-</div>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/1e941903c1ae46cba63bb1d28e8ead04.webp" alt="دمنوش آرامش" class="menu-card__image">
 
-</div>
+                        </div>
 
-</article>
-<article class="menu-card "
-data-item-name="قلیان پایه آدامس نعناع یخ"
-data-item-desc="قلیان با طعم آدامس نعناع یخ">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<div class="menu-card__media">
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    دمنوش آرامش
+                                </h3>
 
-<img src="uploads/products/74b59eac93664373a0683101d6f04ad9.png"
-alt="قلیان پایه آدامس نعناع یخ"
-class="menu-card__image"
-loading="lazy" />
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="150000">۱۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-<div class="menu-card__details">
+                        </div>
 
-<div class="menu-card__top">
+                    </article>
+                    <article class="menu-card " data-item-name="دمنوش آویشن" data-item-desc="">
 
-<h3 class="menu-card__title">
-قلیان پایه آدامس نعناع یخ
-</h3>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/e580649b4a4c47aab87ef23ac9ac12de.webp" alt="دمنوش آویشن" class="menu-card__image">
 
-<div class="menu-card__price-badge">
+                        </div>
 
-<span class="price-val"
-data-price="250000">
-250,000
-</span>
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<span class="price-currency">
-تومان
-</span>
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    دمنوش آویشن
+                                </h3>
 
-</div>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="150000">۱۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-<p class="menu-card__description">
-قلیان با طعم آدامس نعناع یخ
-</p>
+                        </div>
 
-<div class="menu-card__footer">
+                    </article>
 
-<span class="menu-card__tag">
-دست‌ساز و تازه
-</span>
+                </div>
 
-<span class="menu-card__action-indicator">
-سفارش در محل
+            </section>
+            <section class="menu-section" id="cat-11" data-section-id="11">
 
-<svg width="12"
-height="12"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2.5"
-aria-hidden="true">
+                <div class="section-title-wrap">
 
-<path d="M5 12h14M12 5l7 7-7 7"></path>
-</svg>
-</span>
+                    <div class="section-title-wrap__badge">
+                        💨
+                    </div>
 
-</div>
+                    <div>
+                        <h2 class="section-title">
+                            قلیان
+                        </h2>
 
-</div>
+                    </div>
 
-</article>
-<article class="menu-card "
-data-item-name="قلیان پایه دژاوو"
-data-item-desc="قلیان با طعم دژاوو">
+                </div>
 
-<div class="menu-card__media">
+                <div class="product-grid">
 
-<img src="uploads/products/d5dc4d6167824093a702f32260c96287.png"
-alt="قلیان پایه دژاوو"
-class="menu-card__image"
-loading="lazy" />
+                    <article class="menu-card " data-item-name="آدامس نعناع - سبک" data-item-desc="خنک و باطراوت و خوش‌بو 🍃">
 
-</div>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/9a9e0504d7574878b4202a8730a85eed.webp" alt="آدامس نعناع - سبک" class="menu-card__image">
 
-<div class="menu-card__details">
+                        </div>
 
-<div class="menu-card__top">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<h3 class="menu-card__title">
-قلیان پایه دژاوو
-</h3>
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    آدامس نعناع - سبک
+                                </h3>
 
-<div class="menu-card__price-badge">
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-<span class="price-val"
-data-price="250000">
-250,000
-</span>
+                            <p class="menu-card__description">
+                                خنک و باطراوت و خوش‌بو 🍃
+                            </p>
 
-<span class="price-currency">
-تومان
-</span>
+                        </div>
 
-</div>
+                    </article>
+                    <article class="menu-card " data-item-name="آدامس دارچین - سبک" data-item-desc="">
 
-</div>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/d98ac52287fe45feb4fe9a63d5617b16.webp" alt="آدامس دارچین - سبک" class="menu-card__image">
 
-<p class="menu-card__description">
-قلیان با طعم دژاوو
-</p>
+                        </div>
 
-<div class="menu-card__footer">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<span class="menu-card__tag">
-دست‌ساز و تازه
-</span>
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    آدامس دارچین - سبک
+                                </h3>
 
-<span class="menu-card__action-indicator">
-سفارش در محل
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-<svg width="12"
-height="12"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2.5"
-aria-hidden="true">
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-<path d="M5 12h14M12 5l7 7-7 7"></path>
-</svg>
-</span>
+                        </div>
 
-</div>
+                    </article>
+                    <article class="menu-card " data-item-name="لیمو نعناع - سبک" data-item-desc="ترش و خنک و پرطرفدار 🍋">
 
-</div>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/fdc5bb38f8e541199cb7a48f7d8d22a8.webp" alt="لیمو نعناع - سبک" class="menu-card__image">
 
-</article>
+                        </div>
 
-</div>
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-</section>
-<section class="menu-section"
-id="cat-1"
-data-section-id="1">
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    لیمو نعناع - سبک
+                                </h3>
 
-<div class="section-title-wrap">
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-<div class="section-title-wrap__badge">
-☕
-</div>
+                            <p class="menu-card__description">
+                                ترش و خنک و پرطرفدار 🍋
+                            </p>
 
-<div>
-<h2 class="section-title">
-نوشیدنی‌های گرم
-</h2>
+                        </div>
 
-<p class="section-desc">
-قهوه و نوشیدنی‌های گرم
-</p>
-</div>
+                    </article>
+                    <article class="menu-card " data-item-name="پرتغال نعناع - متوسط" data-item-desc="">
 
-</div>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/b5c5af5dbae34ae0a59ee72e10a611fb.webp" alt="پرتغال نعناع - متوسط" class="menu-card__image">
 
-<div class="product-grid">
+                        </div>
 
-<article class="menu-card "
-data-item-name="کاپوچینو"
-data-item-desc="کاپوچینو گرم و تازه">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<div class="menu-card__media">
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    پرتغال نعناع - متوسط
+                                </h3>
 
-<img src="uploads/products/4b29457c6e624794b9d17d3803539f56.webp"
-alt="کاپوچینو"
-class="menu-card__image"
-loading="lazy" />
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-<div class="menu-card__details">
+                        </div>
 
-<div class="menu-card__top">
+                    </article>
+                    <article class="menu-card " data-item-name="شراب هنوانه - متوسط" data-item-desc="">
 
-<h3 class="menu-card__title">
-کاپوچینو
-</h3>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/7aa484a4faae47678c5f137e40547da8.webp" alt="شراب هنوانه - متوسط" class="menu-card__image">
 
-<div class="menu-card__price-badge">
+                        </div>
 
-<span class="price-val"
-data-price="180000">
-180,000
-</span>
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<span class="price-currency">
-تومان
-</span>
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    شراب هنوانه - متوسط
+                                </h3>
 
-</div>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-<p class="menu-card__description">
-کاپوچینو گرم و تازه
-</p>
+                        </div>
 
-<div class="menu-card__footer">
+                    </article>
+                    <article class="menu-card " data-item-name="دوسیــب - سنگـیـن" data-item-desc="قلیان با طعم دوسیب 🍎🍏">
 
-<span class="menu-card__tag">
-دست‌ساز و تازه
-</span>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/6bc458fb2a764288851837550191ef51.webp" alt="دوسیــب - سنگـیـن" class="menu-card__image">
 
-<span class="menu-card__action-indicator">
-سفارش در محل
+                        </div>
 
-<svg width="12"
-height="12"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2.5"
-aria-hidden="true">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<path d="M5 12h14M12 5l7 7-7 7"></path>
-</svg>
-</span>
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    دوسیــب - سنگـیـن
+                                </h3>
 
-</div>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description">
+                                قلیان با طعم دوسیب 🍎🍏
+                            </p>
 
-</article>
-<article class="menu-card "
-data-item-name="دبل اسپرسو"
-data-item-desc="اسپرسو گرم و خوش عطر">
+                        </div>
 
-<div class="menu-card__media">
+                    </article>
+                    <article class="menu-card " data-item-name="دوسیب آلبالو - سنگین" data-item-desc="">
 
-<img src="uploads/products/c127f4ad00bd4923872a0c98eda9a954.png"
-alt="دبل اسپرسو"
-class="menu-card__image"
-loading="lazy" />
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/6d5a8bfcc7da497ea3507694fb76fdc8.webp" alt="دوسیب آلبالو - سنگین" class="menu-card__image">
 
-</div>
+                        </div>
 
-<div class="menu-card__details">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<div class="menu-card__top">
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    دوسیب آلبالو - سنگین
+                                </h3>
 
-<h3 class="menu-card__title">
-دبل اسپرسو
-</h3>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-<div class="menu-card__price-badge">
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-<span class="price-val"
-data-price="79000">
-79,000
-</span>
+                        </div>
 
-<span class="price-currency">
-تومان
-</span>
+                    </article>
+                    <article class="menu-card " data-item-name="دژاوو - فانتزی" data-item-desc="طعمی خاص و کمی مرموز 🔮">
 
-</div>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/ad92589bc07a4a74ab924279cfb9be2d.webp" alt="دژاوو - فانتزی" class="menu-card__image">
 
-</div>
+                        </div>
 
-<p class="menu-card__description">
-اسپرسو گرم و خوش عطر
-</p>
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<div class="menu-card__footer">
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    دژاوو - فانتزی
+                                </h3>
 
-<span class="menu-card__tag">
-دست‌ساز و تازه
-</span>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-<span class="menu-card__action-indicator">
-سفارش در محل
+                            <p class="menu-card__description">
+                                طعمی خاص و کمی مرموز 🔮
+                            </p>
 
-<svg width="12"
-height="12"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2.5"
-aria-hidden="true">
+                        </div>
 
-<path d="M5 12h14M12 5l7 7-7 7"></path>
-</svg>
-</span>
+                    </article>
+                    <article class="menu-card " data-item-name="لاو - فانتزی" data-item-desc="شیرین و میوه‌ای و محبوب 💖">
 
-</div>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/2cb58ef1bcdd4d56962b7f90ddc492cf.webp" alt="لاو - فانتزی" class="menu-card__image">
 
-</div>
+                        </div>
 
-</article>
-<article class="menu-card "
-data-item-name="سرویس چای"
-data-item-desc="چای گرم با عطر گل محمدی">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<div class="menu-card__media">
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    لاو - فانتزی
+                                </h3>
 
-<img src="uploads/products/dd529e9a2c984145a67508e0f02883f4.png"
-alt="سرویس چای"
-class="menu-card__image"
-loading="lazy" />
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description">
+                                شیرین و میوه‌ای و محبوب 💖
+                            </p>
 
-<div class="menu-card__details">
+                        </div>
 
-<div class="menu-card__top">
+                    </article>
+                    <article class="menu-card " data-item-name="بیسکوِییت - فانتزی" data-item-desc="">
 
-<h3 class="menu-card__title">
-سرویس چای
-</h3>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/f78a6346962543a08b2da0b42b6745a2.webp" alt="بیسکوِییت - فانتزی" class="menu-card__image">
 
-<div class="menu-card__price-badge">
+                        </div>
 
-<span class="price-val"
-data-price="450000">
-450,000
-</span>
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<span class="price-currency">
-تومان
-</span>
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    بیسکوِییت - فانتزی
+                                </h3>
 
-</div>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-<p class="menu-card__description">
-چای گرم با عطر گل محمدی
-</p>
+                        </div>
 
-<div class="menu-card__footer">
+                    </article>
+                    <article class="menu-card " data-item-name="شبهای مسکو - فانتزی" data-item-desc="">
 
-<span class="menu-card__tag">
-دست‌ساز و تازه
-</span>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/8f1b551dda4446ce9352496c717adde7.webp" alt="شبهای مسکو - فانتزی" class="menu-card__image">
 
-<span class="menu-card__action-indicator">
-سفارش در محل
+                        </div>
 
-<svg width="12"
-height="12"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2.5"
-aria-hidden="true">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<path d="M5 12h14M12 5l7 7-7 7"></path>
-</svg>
-</span>
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    شبهای مسکو - فانتزی
+                                </h3>
 
-</div>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-</article>
+                        </div>
 
-</div>
+                    </article>
+                    <article class="menu-card " data-item-name="بلوبری - فانتزی" data-item-desc="">
 
-</section>
-<section class="menu-section"
-id="cat-2"
-data-section-id="2">
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/c2addbf3e2e741aaa14eb085910fe190.webp" alt="بلوبری - فانتزی" class="menu-card__image">
 
-<div class="section-title-wrap">
+                        </div>
 
-<div class="section-title-wrap__badge">
-🥤
-</div>
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<div>
-<h2 class="section-title">
-نوشیدنی‌های سرد
-</h2>
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    بلوبری - فانتزی
+                                </h3>
 
-<p class="section-desc">
-نوشیدنی‌های خنک و تابستانی
-</p>
-</div>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-<div class="product-grid">
+                        </div>
 
-<article class="menu-card "
-data-item-name="آیس لته"
-data-item-desc="یک نوشیدنی خنک">
+                    </article>
+                    <article class="menu-card " data-item-name="بستنی یخ - فانتزی" data-item-desc="">
 
-<div class="menu-card__media">
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/ed2c9ab9cee94e8d97a4c4e1fb61a3ae.webp" alt="بستنی یخ - فانتزی" class="menu-card__image">
 
-<img src="uploads/products/1f33df1ad5884350a89fbc13136dd9c4.png"
-alt="آیس لته"
-class="menu-card__image"
-loading="lazy" />
+                        </div>
 
-</div>
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<div class="menu-card__details">
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    بستنی یخ - فانتزی
+                                </h3>
 
-<div class="menu-card__top">
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-<h3 class="menu-card__title">
-آیس لته
-</h3>
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-<div class="menu-card__price-badge">
+                        </div>
 
-<span class="price-val"
-data-price="240000">
-240,000
-</span>
+                    </article>
 
-<span class="price-currency">
-تومان
-</span>
+                </div>
 
-</div>
+            </section>
+            <section class="menu-section" id="cat-8" data-section-id="8">
 
-</div>
+                <div class="section-title-wrap">
 
-<p class="menu-card__description">
-یک نوشیدنی خنک
-</p>
+                    <div class="section-title-wrap__badge">
+                        ♨️
+                    </div>
 
-<div class="menu-card__footer">
+                    <div>
+                        <h2 class="section-title">
+                            بار گرم
+                        </h2>
 
-<span class="menu-card__tag">
-دست‌ساز و تازه
-</span>
+                    </div>
 
-<span class="menu-card__action-indicator">
-سفارش در محل
+                </div>
 
-<svg width="12"
-height="12"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2.5"
-aria-hidden="true">
+                <div class="product-grid">
 
-<path d="M5 12h14M12 5l7 7-7 7"></path>
-</svg>
-</span>
+                    <article class="menu-card " data-item-name="اسپرسو دبل شات" data-item-desc="تلخ، غلیظ و سرحال‌کننده ⚡">
 
-</div>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/1b22232f6b1a4188981e446b582cdb97.webp" alt="اسپرسو دبل شات" class="menu-card__image">
 
-</div>
+                        </div>
 
-</article>
-<article class="menu-card "
-data-item-name="لیموناد تگری"
-data-item-desc="لیموناد تگری مخصوص کافی شاپ رادینو">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<div class="menu-card__media">
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    اسپرسو دبل شات
+                                </h3>
 
-<img src="uploads/products/a1d6db99c31f48048e17df862abb31d4.png"
-alt="لیموناد تگری"
-class="menu-card__image"
-loading="lazy" />
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="70000">۷۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description">
+                                تلخ، غلیظ و سرحال‌کننده ⚡
+                            </p>
 
-<div class="menu-card__details">
+                        </div>
 
-<div class="menu-card__top">
+                    </article>
+                    <article class="menu-card " data-item-name="لته آرت" data-item-desc="">
 
-<h3 class="menu-card__title">
-لیموناد تگری
-</h3>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/f1b04c1cb5d8452ea1bbd72b932380c6.webp" alt="لته آرت" class="menu-card__image">
 
-<div class="menu-card__price-badge">
+                        </div>
 
-<span class="price-val"
-data-price="160000">
-160,000
-</span>
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<span class="price-currency">
-تومان
-</span>
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    لته آرت
+                                </h3>
 
-</div>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="180000">۱۸۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-<p class="menu-card__description">
-لیموناد تگری مخصوص کافی شاپ رادینو
-</p>
+                        </div>
 
-<div class="menu-card__footer">
+                    </article>
+                    <article class="menu-card " data-item-name="کاپوچینو" data-item-desc="کف‌دار، نرم و دلچسب ☁️">
 
-<span class="menu-card__tag">
-دست‌ساز و تازه
-</span>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/f990a94f3bbf472c8f984b05446b498e.webp" alt="کاپوچینو" class="menu-card__image">
 
-<span class="menu-card__action-indicator">
-سفارش در محل
+                        </div>
 
-<svg width="12"
-height="12"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2.5"
-aria-hidden="true">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<path d="M5 12h14M12 5l7 7-7 7"></path>
-</svg>
-</span>
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    کاپوچینو
+                                </h3>
 
-</div>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="180000">۱۸۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description">
+                                کف‌دار، نرم و دلچسب ☁️
+                            </p>
 
-</article>
-<article class="menu-card "
-data-item-name="آب معدنی خنک - 250میلی لیتر"
-data-item-desc="گوارا بنوشید">
+                        </div>
 
-<div class="menu-card__media">
+                    </article>
+                    <article class="menu-card " data-item-name="موکا" data-item-desc="">
 
-<img src="uploads/products/f8a7150f109340a988e56406b98662e2.png"
-alt="آب معدنی خنک - 250میلی لیتر"
-class="menu-card__image"
-loading="lazy" />
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/9c7c716f3c184342be244250f24e79b1.webp" alt="موکا" class="menu-card__image">
 
-</div>
+                        </div>
 
-<div class="menu-card__details">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<div class="menu-card__top">
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    موکا
+                                </h3>
 
-<h3 class="menu-card__title">
-آب معدنی خنک - 250میلی لیتر
-</h3>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="200000">۲۰۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-<div class="menu-card__price-badge">
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-<span class="price-val"
-data-price="20000">
-20,000
-</span>
+                        </div>
 
-<span class="price-currency">
-تومان
-</span>
+                    </article>
+                    <article class="menu-card " data-item-name="لته کارامل (فندق-نارگیل)" data-item-desc="">
 
-</div>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/3d2dfd0e4691426fabdb93c8c09ea785.webp" alt="لته کارامل (فندق-نارگیل)" class="menu-card__image">
 
-</div>
+                        </div>
 
-<p class="menu-card__description">
-گوارا بنوشید
-</p>
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<div class="menu-card__footer">
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    لته کارامل (فندق-نارگیل)
+                                </h3>
 
-<span class="menu-card__tag">
-دست‌ساز و تازه
-</span>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="200000">۲۰۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-<span class="menu-card__action-indicator">
-سفارش در محل
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-<svg width="12"
-height="12"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2.5"
-aria-hidden="true">
+                        </div>
 
-<path d="M5 12h14M12 5l7 7-7 7"></path>
-</svg>
-</span>
+                    </article>
+                    <article class="menu-card " data-item-name="هات چاکلت (شکلات داغ)" data-item-desc="غلیظ و گرم، مخصوصِ روزهای سرد 🍫">
 
-</div>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/745c61d6557449e2b0c4b7eb8a175a5d.webp" alt="هات چاکلت (شکلات داغ)" class="menu-card__image">
 
-</div>
+                        </div>
 
-</article>
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-</div>
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    هات چاکلت (شکلات داغ)
+                                </h3>
 
-</section>
-<section class="menu-section"
-id="cat-3"
-data-section-id="3">
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="180000">۱۸۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-<div class="section-title-wrap">
+                            <p class="menu-card__description">
+                                غلیظ و گرم، مخصوصِ روزهای سرد 🍫
+                            </p>
 
-<div class="section-title-wrap__badge">
-🍰
-</div>
+                        </div>
 
-<div>
-<h2 class="section-title">
-دسر و کیک
-</h2>
+                    </article>
+                    <article class="menu-card " data-item-name="نسکافه" data-item-desc="">
 
-<p class="section-desc">
-انواع کیک و دسر
-</p>
-</div>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/408b88e06cef43c5a448e28b80f578b1.webp" alt="نسکافه" class="menu-card__image">
 
-</div>
+                        </div>
 
-<div class="product-grid">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<article class="menu-card "
-data-item-name="کیک خیس شکلاتی - 250گرمی"
-data-item-desc="کیک خیس مخصوص کافی شاپ رادینو با شکلات تلخ">
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    نسکافه
+                                </h3>
 
-<div class="menu-card__media">
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="180000">۱۸۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-<img src="uploads/products/c265b9291fd9491f84f6f70db33fd6be.png"
-alt="کیک خیس شکلاتی - 250گرمی"
-class="menu-card__image"
-loading="lazy" />
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-</div>
+                        </div>
 
-<div class="menu-card__details">
+                    </article>
+                    <article class="menu-card " data-item-name="چای کرک" data-item-desc="">
 
-<div class="menu-card__top">
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/40cf4c669924409ebd2541e5ded9e62f.webp" alt="چای کرک" class="menu-card__image">
 
-<h3 class="menu-card__title">
-کیک خیس شکلاتی - 250گرمی
-</h3>
+                        </div>
 
-<div class="menu-card__price-badge">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<span class="price-val"
-data-price="90000">
-90,000
-</span>
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    چای کرک
+                                </h3>
 
-<span class="price-currency">
-تومان
-</span>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="180000">۱۸۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-</div>
+                        </div>
 
-<p class="menu-card__description">
-کیک خیس مخصوص کافی شاپ رادینو با شکلات تلخ
-</p>
+                    </article>
+                    <article class="menu-card " data-item-name="چای ماسالا" data-item-desc="گرم، تند و آرامش‌بخش 🌶️">
 
-<div class="menu-card__footer">
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/8668c55964cd43c384c6b26b9f4ac161.webp" alt="چای ماسالا" class="menu-card__image">
 
-<span class="menu-card__tag">
-دست‌ساز و تازه
-</span>
+                        </div>
 
-<span class="menu-card__action-indicator">
-سفارش در محل
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<svg width="12"
-height="12"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2.5"
-aria-hidden="true">
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    چای ماسالا
+                                </h3>
 
-<path d="M5 12h14M12 5l7 7-7 7"></path>
-</svg>
-</span>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="180000">۱۸۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-</div>
+                            <p class="menu-card__description">
+                                گرم، تند و آرامش‌بخش 🌶️
+                            </p>
 
-</div>
+                        </div>
 
-</article>
+                    </article>
+                    <article class="menu-card " data-item-name="آمریکانو" data-item-desc="">
 
-</div>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/f8c271c875914a509c5622ed3dd9d45a.webp" alt="آمریکانو" class="menu-card__image">
 
-</section>
+                        </div>
 
-<div id="no-search-results"
-class="state-empty"
-style="display: none; padding: 40px 0;">
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-<div class="state-empty__orb">
-🔍
-</div>
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    آمریکانو
+                                </h3>
 
-<h3 class="state-empty__title">
-طعم مورد نظر پیدا نشد!
-</h3>
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="130000">۱۳۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-<p class="state-empty__text">
-کلمه دیگری را جستجو کنید یا از باریستای ما سوال بفرمایید.
-</p>
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-</div>
+                        </div>
 
-</main>
+                    </article>
 
-</div>
+                </div>
 
-<script>
-(function () {
-"use strict";
+            </section>
+            <section class="menu-section" id="cat-7" data-section-id="7">
 
-/*
-* تبدیل قیمت‌ها به فرمت فارسی
-*/
-document.querySelectorAll(".price-val").forEach(function (element) {
-const rawPrice = Number(element.getAttribute("data-price"));
+                <div class="section-title-wrap">
 
-if (!Number.isNaN(rawPrice)) {
-element.textContent = rawPrice.toLocaleString("fa-IR");
-}
-});
+                    <div class="section-title-wrap__badge">
+                        🧊
+                    </div>
 
-const searchInput = document.getElementById("menu-search");
-const clearButton = document.getElementById("search-clear-btn");
-const noResults = document.getElementById("no-search-results");
+                    <div>
+                        <h2 class="section-title">
+                            بار سرد
+                        </h2>
 
-const sections = Array.from(
-document.querySelectorAll(".menu-section")
-);
+                    </div>
 
-const navPills = Array.from(
-document.querySelectorAll(".nav-pill")
-);
+                </div>
 
-/*
-* جستجوی زنده
-*/
-if (searchInput && clearButton) {
-searchInput.addEventListener("input", function () {
-const query = searchInput.value.trim().toLowerCase();
+                <div class="product-grid">
 
-clearButton.style.display = query ? "flex" : "none";
+                    <article class="menu-card " data-item-name="شیر موز" data-item-desc="">
 
-let totalFound = 0;
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/bc039de0c8824ab6b8c7d02372ac78f6.webp" alt="شیر موز" class="menu-card__image">
 
-sections.forEach(function (section) {
-const cards = Array.from(
-section.querySelectorAll(".menu-card")
-);
+                        </div>
 
-let visibleCards = 0;
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-cards.forEach(function (card) {
-const itemName = (
-card.getAttribute("data-item-name") \|\| ""
-).toLowerCase();
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    شیر موز
+                                </h3>
 
-const itemDescription = (
-card.getAttribute("data-item-desc") \|\| ""
-).toLowerCase();
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="150000">۱۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-const isMatch =
-!query \|\|
-itemName.includes(query) \|\|
-itemDescription.includes(query);
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-card.style.display = isMatch ? "flex" : "none";
+                        </div>
 
-if (isMatch) {
-visibleCards++;
-}
-});
+                    </article>
+                    <article class="menu-card " data-item-name="شیر موز بستنی" data-item-desc="">
 
-section.style.display =
-visibleCards > 0 ? "block" : "none";
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/61c8d48cc9a843feb8b5ff16eb1e7f59.webp" alt="شیر موز بستنی" class="menu-card__image">
 
-totalFound += visibleCards;
-});
+                        </div>
 
-if (noResults) {
-noResults.style.display =
-totalFound === 0 ? "block" : "none";
-}
-});
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-clearButton.addEventListener("click", function () {
-searchInput.value = "";
-searchInput.dispatchEvent(new Event("input"));
-searchInput.focus();
-});
-}
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    شیر موز بستنی
+                                </h3>
 
-/*
-* اسکرول نرم دسته‌بندی‌ها
-*/
-navPills.forEach(function (pill) {
-pill.addEventListener("click", function (event) {
-const targetId = pill.getAttribute("href");
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="180000">۱۸۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-if (!targetId \|\| !targetId.startsWith("#")) {
-return;
-}
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-const targetElement = document.querySelector(targetId);
+                        </div>
 
-if (!targetElement) {
-return;
-}
+                    </article>
+                    <article class="menu-card " data-item-name="شیر پسته" data-item-desc="">
 
-event.preventDefault();
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/a2d73d6bfb7c487989d1ab0baff0e113.webp" alt="شیر پسته" class="menu-card__image">
 
-const navigationHeight = 135;
+                        </div>
 
-const targetPosition =
-targetElement.getBoundingClientRect().top +
-window.scrollY -
-navigationHeight;
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-window.scrollTo({
-top: targetPosition,
-behavior: "smooth"
-});
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    شیر پسته
+                                </h3>
 
-navPills.forEach(function (item) {
-item.classList.remove("nav-pill--active");
-});
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="150000">۱۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-pill.classList.add("nav-pill--active");
-});
-});
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-/*
-* ScrollSpy
-*/
-let scrollTimeout;
+                        </div>
 
-window.addEventListener(
-"scroll",
-function () {
-clearTimeout(scrollTimeout);
+                    </article>
+                    <article class="menu-card " data-item-name="آب طالبی" data-item-desc="">
 
-scrollTimeout = setTimeout(function () {
-const scrollPosition = window.scrollY + 160;
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/87199cc621c143e29189dc1cd4023d46.webp" alt="آب طالبی" class="menu-card__image">
 
-sections.forEach(function (section) {
-if (section.style.display === "none") {
-return;
-}
+                        </div>
 
-const sectionTop = section.offsetTop;
-const sectionHeight = section.offsetHeight;
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
 
-const isActive =
-scrollPosition >= sectionTop &&
-scrollPosition < sectionTop + sectionHeight;
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    آب طالبی
+                                </h3>
 
-if (!isActive) {
-return;
-}
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="150000">۱۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
 
-const sectionId = section.getAttribute("id");
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
 
-navPills.forEach(function (pill) {
-const isCurrent =
-pill.getAttribute("href") === "#" + sectionId;
+                        </div>
 
-pill.classList.toggle(
-"nav-pill--active",
-isCurrent
-);
+                    </article>
+                    <article class="menu-card " data-item-name="لیموناد خنک" data-item-desc="ترش، خنک و انرژی‌بخش 🍋">
 
-if (isCurrent) {
-pill.scrollIntoView({
-behavior: "smooth",
-inline: "center",
-block: "nearest"
-});
-}
-});
-});
-}, 30);
-},
-{
-passive: true
-}
-);
-})();
-</script>
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/cc8671e439d94f3fac1cdae1b1911bdf.webp" alt="لیموناد خنک" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    لیموناد خنک
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="200000">۲۰۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description">
+                                ترش، خنک و انرژی‌بخش 🍋
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="موهیتو" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/2324d18c48144747869cfa2684b5cd08.webp" alt="موهیتو" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    موهیتو
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="200000">۲۰۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="شیک اسپرسو" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/45dbe8d4ce5b4a5c895a0b0e096c02fe.webp" alt="شیک اسپرسو" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    شیک اسپرسو
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="شیک شکلات" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/8124a05754c542bcb4e9c17313b242b7.webp" alt="شیک شکلات" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    شیک شکلات
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="شیک نوتلا" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/4a79e5676298446a99d9758e70f60733.webp" alt="شیک نوتلا" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    شیک نوتلا
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="شیک لوتوس" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/502443ae0d5f4386ad7f403ee66dba03.webp" alt="شیک لوتوس" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    شیک لوتوس
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="شیک بادوم زمینی" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/2bb80f10341f4ddca52b629982032f45.webp" alt="شیک بادوم زمینی" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    شیک بادوم زمینی
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="شیک طالبی" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/dbcec2ef359c4ad692ee0133c333fdbe.webp" alt="شیک طالبی" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    شیک طالبی
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="شیک توت فرنگی" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/8c65c1badbeb462b92dd680358f3595a.webp" alt="شیک توت فرنگی" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    شیک توت فرنگی
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="آفوگاتو" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/cddd0fdd05ee499fac2b395b58ec6499.webp" alt="آفوگاتو" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    آفوگاتو
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="170000">۱۷۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="بستنی اسکوپی - 1 اسکوپ" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/2ed8d01e551e4033876b4ca8d22dbf66.webp" alt="بستنی اسکوپی - 1 اسکوپ" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    بستنی اسکوپی - 1 اسکوپ
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="60000">۶۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="شیک وانیل" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/7bfe7af77b3a48e7aba67447a60add14.webp" alt="شیک وانیل" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    شیک وانیل
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="250000">۲۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+            <section class="menu-section" id="cat-14" data-section-id="14">
+
+                <div class="section-title-wrap">
+
+                    <div class="section-title-wrap__badge">
+                        ❄️
+                    </div>
+
+                    <div>
+                        <h2 class="section-title">
+                            آیس کافی
+                        </h2>
+
+                    </div>
+
+                </div>
+
+                <div class="product-grid">
+
+                    <article class="menu-card " data-item-name="آیس لته" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/7ba21327121947cc9ccbe43e976971e0.webp" alt="آیس لته" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    آیس لته
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="180000">۱۸۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="آیس موکا" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/62b686fe855649b486dae4cf0775bb15.webp" alt="آیس موکا" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    آیس موکا
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="200000">۲۰۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="آیس لته نارگیل فندق" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/e79c080f1f194ba38e67c438c9e11cf4.webp" alt="آیس لته نارگیل فندق" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    آیس لته نارگیل فندق
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="200000">۲۰۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="آیس کارامل ماکیاتو" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/8b782be659ce454d98d0a89398c78262.webp" alt="آیس کارامل ماکیاتو" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    آیس کارامل ماکیاتو
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="200000">۲۰۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="آیس آمریکانو" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/0c072c7316424a77a9d6b4e72516f32f.webp" alt="آیس آمریکانو" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    آیس آمریکانو
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="150000">۱۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="اسپرسو سودا" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <img src="/uploads/products/a7ad465427634ac7a792268717f81955.webp" alt="اسپرسو سودا" class="menu-card__image">
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    اسپرسو سودا
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="150000">۱۵۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+            <section class="menu-section" id="cat-15" data-section-id="15">
+
+                <div class="section-title-wrap">
+
+                    <div class="section-title-wrap__badge">
+                        🎁
+                    </div>
+
+                    <div>
+                        <h2 class="section-title">
+                            سرویس ها
+                        </h2>
+
+                    </div>
+
+                </div>
+
+                <div class="product-grid">
+
+                    <article class="menu-card " data-item-name="سرویس 2 نفره" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <div class="menu-card__image-dummy">
+                                <span>☕</span>
+                            </div>
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    سرویس 2 نفره
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="600000">۶۰۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="سرویس 3 نفر" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <div class="menu-card__image-dummy">
+                                <span>☕</span>
+                            </div>
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    سرویس 3 نفر
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="700000">۷۰۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="menu-card " data-item-name="سرویس 4 نفره" data-item-desc="">
+
+                        <!-- تصویر آیتم -->
+                        <div class="menu-card__media">
+                            <div class="menu-card__image-dummy">
+                                <span>☕</span>
+                            </div>
+
+                        </div>
+
+                        <!-- مشخصات، قیمت و توضیحات کاملاً منطبق با CSS شما -->
+                        <div class="menu-card__details">
+
+                            <div class="menu-card__top">
+                                <h3 class="menu-card__title">
+                                    سرویس 4 نفره
+                                </h3>
+
+                                <div class="menu-card__price-badge">
+                                    <span class="price-val" data-price="800000">۸۰۰٬۰۰۰</span>
+                                    <span class="price-currency">
+                                        تومان
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="menu-card__description menu-card__description--subtle">
+                                Radino Specialty Coffee
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <div id="no-search-results" class="state-empty" style="display: none; padding: 40px 0;">
+
+                <div class="state-empty__orb">
+                    🔍
+                </div>
+
+                <h3 class="state-empty__title">
+                    طعم مورد نظر پیدا نشد!
+                </h3>
+
+                <p class="state-empty__text">
+                    کلمه دیگری را جستجو کنید یا از باریستای ما سوال بفرمایید.
+                </p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script>
+        (function () {
+            "use strict";
+
+            // ۱. تابع باز کردن صفحه
+            function revealPage() {
+                var preloader = document.getElementById("page-preloader");
+                var menuApp = document.getElementById("main-menu-app");
+
+                if (preloader && !preloader.classList.contains("loaded")) {
+                    preloader.classList.add("loaded");
+                }
+                if (menuApp && !menuApp.classList.contains("menu-ready")) {
+                    menuApp.classList.add("menu-ready");
+                }
+            }
+
+            // ۲. انتظار برای دانلود تمام عکس‌ها
+            function handleImagesLoading() {
+                var images = Array.from(document.querySelectorAll("img"));
+
+                if (images.length === 0) {
+                    revealPage();
+                    return;
+                }
+
+                var loadedCount = 0;
+                var totalImages = images.length;
+
+                function imageDone() {
+                    loadedCount++;
+                    if (loadedCount >= totalImages) {
+                        revealPage();
+                    }
+                }
+
+                images.forEach(function (img) {
+                    if (img.complete && img.naturalHeight !== 0) {
+                        imageDone();
+                    } else {
+                        img.addEventListener("load", imageDone, { once: true });
+                        img.addEventListener("error", imageDone, { once: true });
+                    }
+                });
+
+                // در صورتی که عکس سنگینی گیر کرد حداکثر ۲.۵ ثانیه بعد صفحه باز شود
+                setTimeout(revealPage, 2500);
+            }
+
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", handleImagesLoading);
+            } else {
+                handleImagesLoading();
+            }
+
+            // تبدیل قیمت‌ها به ارقام فارسی
+            document.querySelectorAll(".price-val").forEach(function (element) {
+                var rawPrice = Number(element.getAttribute("data-price"));
+                if (!Number.isNaN(rawPrice)) {
+                    element.textContent = rawPrice.toLocaleString("fa-IR");
+                }
+            });
+
+            // جستجو در محصولات
+            var searchInput = document.getElementById("menu-search");
+            var clearButton = document.getElementById("search-clear-btn");
+            var noResults = document.getElementById("no-search-results");
+            var sections = Array.from(document.querySelectorAll(".menu-section"));
+            var navPills = Array.from(document.querySelectorAll(".nav-pill"));
+
+            if (searchInput && clearButton) {
+                searchInput.addEventListener("input", function () {
+                    var query = searchInput.value.trim().toLowerCase();
+                    clearButton.style.display = query ? "flex" : "none";
+
+                    var totalFound = 0;
+
+                    sections.forEach(function (section) {
+                        var cards = Array.from(section.querySelectorAll(".menu-card"));
+                        var visibleCards = 0;
+
+                        cards.forEach(function (card) {
+                            var itemName = (card.getAttribute("data-item-name") || "").toLowerCase();
+                            var itemDescription = (card.getAttribute("data-item-desc") || "").toLowerCase();
+
+                            var isMatch = !query || itemName.includes(query) || itemDescription.includes(query);
+                            card.style.display = isMatch ? "flex" : "none";
+
+                            if (isMatch) {
+                                visibleCards++;
+                            }
+                        });
+
+                        section.style.display = visibleCards > 0 ? "block" : "none";
+                        totalFound += visibleCards;
+                    });
+
+                    if (noResults) {
+                        noResults.style.display = totalFound === 0 ? "block" : "none";
+                    }
+                });
+
+                clearButton.addEventListener("click", function () {
+                    searchInput.value = "";
+                    searchInput.dispatchEvent(new Event("input"));
+                    searchInput.focus();
+                });
+            }
+
+            // اسکرول نرم دسته‌ها
+            navPills.forEach(function (pill) {
+                pill.addEventListener("click", function (event) {
+                    var targetId = pill.getAttribute("href");
+                    if (!targetId || !targetId.startsWith("#")) return;
+
+                    var targetElement = document.querySelector(targetId);
+                    if (!targetElement) return;
+
+                    event.preventDefault();
+
+                    var navigationHeight = 120;
+                    var targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navigationHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: "smooth"
+                    });
+
+                    navPills.forEach(function (item) {
+                        item.classList.remove("nav-pill--active");
+                    });
+                    pill.classList.add("nav-pill--active");
+                });
+            });
+
+            // ردیابی اسکرول
+            var isTicking = false;
+            window.addEventListener("scroll", function () {
+                if (!isTicking) {
+                    window.requestAnimationFrame(function () {
+                        var scrollPosition = window.scrollY + 140;
+
+                        for (var i = 0; i < sections.length; i++) {
+                            var section = sections[i];
+                            if (section.style.display === "none") continue;
+
+                            var sectionTop = section.offsetTop;
+                            var sectionHeight = section.offsetHeight;
+
+                            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                                var sectionId = section.getAttribute("id");
+
+                                navPills.forEach(function (pill) {
+                                    var isCurrent = pill.getAttribute("href") === "#" + sectionId;
+                                    if (pill.classList.contains("nav-pill--active") !== isCurrent) {
+                                        pill.classList.toggle("nav-pill--active", isCurrent);
+                                        if (isCurrent) {
+                                            pill.scrollIntoView({
+                                                behavior: "smooth",
+                                                inline: "center",
+                                                block: "nearest"
+                                            });
+                                        }
+                                    }
+                                });
+                                break;
+                            }
+                        }
+                        isTicking = false;
+                    });
+                    isTicking = true;
+                }
+            }, { passive: true });
+        })();
+    </script>
+
+
+    <!-- Visual Studio Browser Link -->
+    <script type="text/javascript" src="/_vs/browserLink" async="async" id="__browserLink_initializationData" data-requestid="41498e8c675d48db87b02e82f16f805d" data-requestmappingfromserver="false" data-connecturl="http://localhost:65197/fd68966bdacd49bfb57f1f4cdf166d76/browserLink"></script>
+    <!-- End Browser Link -->
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+
 </body>
 </html>
